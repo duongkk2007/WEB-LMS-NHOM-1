@@ -4,36 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Course - EduPress</title>
-    <link rel="stylesheet" href="main.css">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/css/course-listing.css">
 </head>
 <body>
 
     <!-- HEADER -->
     <header class="header">
-        <div class="header-inner">
-            <a href="" class="logo-header">
+        <!-- INNER HEADER -->
+        <div class="inner-header">
+            <!-- LOGO HEADER -->
+            <div class="logo-header">
                 <div class="logo-icon-header">
-                    <img src="" alt="EduPress Logo">
+                    <img src="../src/assets/images/banners/Logo.svg" alt="EduPress Logo">
                 </div>
-                <span>EduPress</span>
-            </a>
+                <span class="header-title">EduPress</span>
+            </div>
 
+            <!-- NAV HEADER -->
             <nav class="nav">
-                <a href="#">Home</a>
-                <a href="#" class="active">Course</a>
-                <a href="#">Blog</a>
-                <a href="#">Page</a>
-                <a href="#">LearnPress Add-On</a>
-                <a href="#">Premium Theme</a>
+                <div class="home-nav">Home</div>
+                <div class="course-nav">Courses</div>
+                <div class="blog-nav">Blog</div>
+                <div class="page-nav">Page</div>
+                <div class="learnpress-nav">LearnPress Add-On</div>
+                <div class="theme-nav">Premium Theme</div>
             </nav>
 
+            <!-- LOGIN / REGISTER -->
             <div class="header-right">
-                <a href="" class="btn-login">Login / Register</a>
-                <div class="search-icon">
-
+                <div class="btn-login">Login / Register</div>
+                <div class="search-icon-header">
+                    <img src="../src/assets/icons/Icon-search-header.svg" alt="Search logo">
                 </div>
             </div>
         </div>
@@ -52,31 +54,35 @@
        <main class="main">
             <!-- LEFT COURSE -->
             <div class="container-main">
+                <!-- PAGE HEADER -->
                 <div class="page-header">
                     <h1 class="page-title">All Courses</h1>
                     <div class="page-search">
                         <div class="search-box">
                             <input type="text" placeholder="Search">
-                            <i></i>
+                            <div class="search-icon-main">
+                                <img src="../src/assets/icons/Icon-search-main.svg" alt="Search logo">
+                            </div>
                         </div>
 
                         <div class="icon-group-search">
                             <div class="icon-view-table">
-                                <i></i>
+                                <img src="../src/assets/icons/Icon-view -table.svg" alt="View Table Icon">
                             </div>
 
                             <div class="icon-view-list">
-                                <i></i>
+                                <img src="../src/assets/icons/Icon-view-list.svg" alt="View List Icon">
                             </div>
                         </div>
                     </div>
                 </div>
 
+                <!-- CONTENT LIST-->
                 <div class="course-list">
                     <!-- COURSE 1 -->
                     <article class="course-card">
                         <div class="course-image">
-                            <img src="../Image/image-course-listing/image-1.png" alt="Course">
+                            <img src="../src/assets/images/courses/courses-listing/image-1.png" alt="Course">
                             <span class="badge">Photography</span>
                         </div>
 
@@ -89,10 +95,10 @@
                             </div>
 
                             <div class="course-stats">
-                                <span><i class="fa-solid fa-clock"></i> 2Weeks</span>
-                                <span><i class="fa-solid fa-graduation-cap"></i> 156 Students</span>
-                                <span><i class="fa-sharp fa-solid fa-signal-bars-good"></i> All levels</span>
-                                <span><i class="fa-solid fa-file-circle-check"></i> 20 Lesson</span>
+                                <span><img src="../src/assets/icons/meta1.svg" alt="Time logo"> 2Weeks</span>
+                                <span><img src="../src/assets/icons/meta2.svg" alt="Student logo"> 156 Students</span>
+                                <span><img src="../src/assets/icons/meta3.svg" alt="Levels logo"> All levels</span>
+                                <span><img src="../src/assets/icons/meta4.svg" alt="Lesson logo"> 20 Lesson</span>
                             </div>
 
                             <div class="course-footer">
@@ -108,7 +114,7 @@
                     <!-- COURSE 2 -->
                      <article class="course-card">
                         <div class="course-image">
-                            <img src="../Image/image-course-listing/image-2.png" alt="Course">
+                            <img src="../src/assets/images/courses/courses-listing/image-2.png" alt="Course">
                             <span class="badge">Photography</span>
                         </div>
 
@@ -121,10 +127,10 @@
                             </div>
 
                             <div class="course-stats">
-                                <span><i class="fa-solid fa-clock"></i> 2Weeks</span>
-                                <span><i class="fa-solid fa-graduation-cap"></i> 156 Students</span>
-                                <span><i class="fa-sharp fa-solid fa-signal-bars-good"></i> All levels</span>
-                                <span><i class="fa-solid fa-file-circle-check"></i> 20 Lesson</span>
+                                <span><img src="../src/assets/icons/meta1.svg" alt="Time logo"> 2Weeks</span>
+                                <span><img src="../src/assets/icons/meta2.svg" alt="Student logo"> 156 Students</span>
+                                <span><img src="../src/assets/icons/meta3.svg" alt="Levels logo"> All levels</span>
+                                <span><img src="../src/assets/icons/meta4.svg" alt="Lesson logo"> 20 Lesson</span>
                             </div>
 
                             <div class="course-footer">
@@ -140,7 +146,7 @@
                     <!-- COURSE 3 -->
                      <article class="course-card">
                         <div class="course-image">
-                            <img src="../Image/image-course-listing/image-3.png" alt="Course">
+                            <img src="../src/assets/images/courses/courses-listing/image-3.png" alt="Course">
                             <span class="badge">Photography</span>
                         </div>
 
@@ -153,10 +159,10 @@
                             </div>
 
                             <div class="course-stats">
-                                <span><i class="fa-solid fa-clock"></i> 2Weeks</span>
-                                <span><i class="fa-solid fa-graduation-cap"></i> 156 Students</span>
-                                <span><i class="fa-sharp fa-solid fa-signal-bars-good"></i> All levels</span>
-                                <span><i class="fa-solid fa-file-circle-check"></i> 20 Lesson</span>
+                                <span><img src="../src/assets/icons/meta1.svg" alt="Time logo"> 2Weeks</span>
+                                <span><img src="../src/assets/icons/meta2.svg" alt="Student logo"> 156 Students</span>
+                                <span><img src="../src/assets/icons/meta3.svg" alt="Levels logo"> All levels</span>
+                                <span><img src="../src/assets/icons/meta4.svg" alt="Lesson logo"> 20 Lesson</span>
                             </div>
 
                             <div class="course-footer">
@@ -172,7 +178,7 @@
                     <!-- COURSE 4 -->
                      <article class="course-card">
                         <div class="course-image">
-                            <img src="../Image/image-course-listing/image-4.png" alt="Course">
+                            <img src="../src/assets/images/courses/courses-listing/image-4.pngg" alt="Course">
                             <span class="badge">Photography</span>
                         </div>
 
@@ -185,10 +191,10 @@
                             </div>
 
                             <div class="course-stats">
-                                <span><i class="fa-solid fa-clock"></i> 2Weeks</span>
-                                <span><i class="fa-solid fa-graduation-cap"></i> 156 Students</span>
-                                <span><i class="fa-sharp fa-solid fa-signal-bars-good"></i> All levels</span>
-                                <span><i class="fa-solid fa-file-circle-check"></i> 20 Lesson</span>
+                                <span><img src="../src/assets/icons/meta1.svg" alt="Time logo"> 2Weeks</span>
+                                <span><img src="../src/assets/icons/meta2.svg" alt="Student logo"> 156 Students</span>
+                                <span><img src="../src/assets/icons/meta3.svg" alt="Levels logo"> All levels</span>
+                                <span><img src="../src/assets/icons/meta4.svg" alt="Lesson logo"> 20 Lesson</span>
                             </div>
 
                             <div class="course-footer">
@@ -204,7 +210,7 @@
                     <!-- COURSE 5 -->
                      <article class="course-card">
                         <div class="course-image">
-                            <img src="../Image/image-course-listing/image-5.png" alt="Course">
+                            <img src="../src/assets/images/courses/courses-listing/image-5.png" alt="Course">
                             <span class="badge">Photography</span>
                         </div>
 
@@ -217,10 +223,10 @@
                             </div>
 
                             <div class="course-stats">
-                                <span><i class="fa-solid fa-clock"></i> 2Weeks</span>
-                                <span><i class="fa-solid fa-graduation-cap"></i> 156 Students</span>
-                                <span><i class="fa-sharp fa-solid fa-signal-bars-good"></i> All levels</span>
-                                <span><i class="fa-solid fa-file-circle-check"></i> 20 Lesson</span>
+                                <span><img src="../src/assets/icons/meta1.svg" alt="Time logo"> 2Weeks</span>
+                                <span><img src="../src/assets/icons/meta2.svg" alt="Student logo"> 156 Students</span>
+                                <span><img src="../src/assets/icons/meta3.svg" alt="Levels logo"> All levels</span>
+                                <span><img src="../src/assets/icons/meta4.svg" alt="Lesson logo"> 20 Lesson</span>
                             </div>
 
                             <div class="course-footer">
@@ -236,7 +242,7 @@
                     <!-- COURSE 6 -->
                      <article class="course-card">
                         <div class="course-image">
-                            <img src="../Image/image-course-listing/image-6.png" alt="Course">
+                            <img src="../src/assets/images/courses/courses-listing/image-6.png" alt="Course">
                             <span class="badge">Photography</span>
                         </div>
 
@@ -249,10 +255,10 @@
                             </div>
 
                             <div class="course-stats">
-                                <span><i class="fa-solid fa-clock"></i> 2Weeks</span>
-                                <span><i class="fa-solid fa-graduation-cap"></i> 156 Students</span>
-                                <span><i class="fa-sharp fa-solid fa-signal-bars-good"></i> All levels</span>
-                                <span><i class="fa-solid fa-file-circle-check"></i> 20 Lesson</span>
+                                <span><img src="../src/assets/icons/meta1.svg" alt="Time logo"> 2Weeks</span>
+                                <span><img src="../src/assets/icons/meta2.svg" alt="Student logo"> 156 Students</span>
+                                <span><img src="../src/assets/icons/meta3.svg" alt="Levels logo"> All levels</span>
+                                <span><img src="../src/assets/icons/meta4.svg" alt="Lesson logo"> 20 Lesson</span>
                             </div>
 
                             <div class="course-footer">
@@ -398,9 +404,13 @@
                         <li>
                             <label>
                                 <input type="checkbox">
-                                <span class="stars">
-
-                                </span>
+                                <ul class="stars-list">
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                </ul>
                             </label>
                             <span class="count">(1,025)</span>
                         </li>
@@ -408,9 +418,13 @@
                         <li>
                             <label>
                                 <input type="checkbox">
-                                <span class="stars">
-                                    
-                                </span>
+                                <ul class="stars-list">
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                </ul>
                             </label>
                             <span class="count">(1,025)</span>
                         </li>
@@ -418,9 +432,13 @@
                         <li>
                             <label>
                                 <input type="checkbox">
-                                <span class="stars">
-
-                                </span>
+                                <ul class="stars-list">
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                </ul>
                             </label>
                             <span class="count">(1,025)</span>
                         </li>
@@ -428,9 +446,13 @@
                         <li>
                             <label>
                                 <input type="checkbox">
-                                <span class="stars">
-
-                                </span>
+                                <ul class="stars-list">
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                </ul>
                             </label>
                             <span class="count">(1,025)</span>
                         </li>
@@ -438,9 +460,13 @@
                         <li>
                             <label>
                                 <input type="checkbox">
-                                <span class="stars">
-
-                                </span>
+                                <ul class="stars-list">
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-yellow"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="Star" class="star-gray"></li>
+                                </ul>
                             </label>
                             <span class="count">(1,025)</span>
                         </li>
@@ -484,11 +510,14 @@
              </aside>
        </main>
     
+       <!-- FOOTER -->
        <footer class="footer">
+            <!-- CONTENT LIST FOOTER-->
             <div class="footer-container">
+                <!-- DESCRIBLE -->
                 <div class="footer-column">
                     <div class="logo-footer">
-                        <img src="" alt="">
+                        <img src="../src/assets/images/banners/Logo.svg" alt="EduPress logo">
                         <span>EduPress</span>
                     </div>
                     <p class="footer-text">
@@ -497,6 +526,7 @@
                     </p>
                 </div>
 
+                <!-- GET HELP -->
                 <div class="footer-column">
                     <h3 class="get-help-title">GET HELP</h3>
                     <ul class="footer-list">
@@ -506,6 +536,7 @@
                     </ul>
                 </div>
 
+                <!-- PROGRAMS -->
                 <div class="footer-column">
                     <h3 class="programs-title">PROGRAMS</h3>
                     <ul class="footer-list">
@@ -517,6 +548,7 @@
                     </ul>
                 </div>
 
+                <!-- CONTACT US -->
                 <div class="footer-column">
                     <h3 class="contact-us-title">CONTACT US</h3>
                     <div class="footer-contact">
@@ -527,13 +559,18 @@
 
                     <div class="social">
                         <ul class="social-list">
-                            <li class="social-link"></li>
-                            <li class="social-link"></li>
-                            <li class="social-link"></li>
-                            <li class="social-link"></li>
-                            <li class="social-link"></li>
+                            <li class="social-link"><img src="../src/assets/icons/Icon-facebook.svg" alt="Facebook"></li>
+                            <li class="social-link"><img src="../src/assets/icons/Icon-Pinterest.svg" alt="Pinterest"></li>
+                            <li class="social-link"><img src="../src/assets/icons/Icon-twitter.svg" alt="Twitter"></li>
+                            <li class="social-link"><img src="../src/assets/icons/Icon-instragram.svg" alt="Instragram"></li>
+                            <li class="social-link"><img src="../src/assets/icons/Icon-youtube.svg" alt="Youtube"></li>
                         </ul>
                     </div>
+                </div>
+
+                <!-- BOTTOM FOOTER-->
+                <div class="footer-bottom">
+                    Copyright © 2024 LearnPress LMS | Powered by ThimPress
                 </div>
             </div>
        </footer>
