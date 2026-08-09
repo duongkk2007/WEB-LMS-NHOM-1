@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ultimate Guide To The Best WordPress LMS Plugin — EduPress</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+
+/* ==========================================================================
+   COURSE SINGLE — theo Figma "EduPress - UI Kit / Course Single"
+   Style riêng cho trang này (header/hero/tabs khác theme chính) nên
+   được scope trong .cs-page để không đụng các trang khác.
+   ========================================================================== */
+.cs-page{
+  --orange: #F2622E;
+  --black: #111111;
+  --gray-bg: #F7F7F7;
+  --border: #E7E7E7;
+  --text: #1A1A1A;
+  --text-soft: #6B6B6B;
+  font-family: 'Inter', sans-serif;
+  color: var(--text);
+  background: #fff;
+}
+.cs-page *{ box-sizing: border-box; }
+.cs-wrap{ max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+/* ---- Top header ---- */
+.cs-header{ border-bottom: 1px solid var(--border); }
+.cs-header .cs-wrap{
+  display: flex; align-items: center; justify-content: space-between;
+  height: 68px;
+}
+.cs-logo{ display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 18px; text-decoration: none; color: var(--text); }
+.cs-logo .ico{ width: 22px; height: 22px; background: var(--orange); border-radius: 5px; }
+.cs-nav ul{ list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; }
+.cs-nav a{ text-decoration: none; color: var(--text); font-size: 14px; font-weight: 500; }
+.cs-nav a.active{ color: var(--orange); }
+.cs-header-right{ display: flex; align-items: center; gap: 18px; font-size: 14px; }
+.cs-search-btn{
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid var(--orange); color: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  background: none; cursor: pointer;
+}
+
+/* ---- Breadcrumb ---- */
+.cs-breadcrumb{ background: var(--gray-bg); border-bottom: 1px solid var(--border); }
+.cs-breadcrumb .cs-wrap{ padding-top: 12px; padding-bottom: 12px; font-size: 13px; color: var(--text-soft); }
+.cs-breadcrumb a{ color: var(--text-soft); text-decoration: none; }
+.cs-breadcrumb span.current{ color: var(--text); }
+
+/* ---- Hero (black) ---- */
+.cs-hero{ background: var(--black); color: #fff; padding: 40px 0; }
+.cs-hero-grid{ display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
+.cs-badge{
+  display: inline-block; background: #fff; color: var(--text);
+  font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 6px; margin-bottom: 14px;
+}
+.cs-hero h1{ font-size: 26px; font-weight: 700; margin: 0 0 10px; line-height: 1.35; max-width: 640px; }
+.cs-byline{ font-size: 13px; color: #B7B7B7; margin-bottom: 18px; }
+.cs-byline a{ color: #fff; text-decoration: none; font-weight: 600; }
+.cs-meta{ display: flex; flex-wrap: wrap; gap: 22px; font-size: 13px; color: #D8D8D8; }
+.cs-meta span{ display: flex; align-items: center; gap: 6px; }
+.cs-meta .dot{ color: var(--orange); }
+
+.cs-promo{
+  background: #EDEBFB; border-radius: 12px; padding: 16px;
+  display: flex; flex-direction: column; gap: 12px; color: var(--text);
+}
+.cs-promo img{ width: 100%; border-radius: 8px; display: block; }
+.cs-promo-price{ display: flex; align-items: center; gap: 10px; }
+.cs-promo-price .old{ text-decoration: line-through; color: var(--text-soft); font-size: 13px; }
+.cs-promo-price .new{ color: var(--orange); font-weight: 700; font-size: 20px; }
+.cs-btn-orange{
+  background: var(--orange); color: #fff; border: none; border-radius: 6px;
+  padding: 10px 18px; font-weight: 600; font-size: 14px; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.cs-btn-orange:hover{ background: #DA5424; }
+
+/* ---- Body layout: content + sidebar ---- */
+.cs-body{ padding: 32px 0 72px; }
+.cs-body-grid{ display: grid; grid-template-columns: 1fr 300px; gap: 24px; align-items: start; }
+
+/* ---- Tabs ---- */
+.cs-tabs{ display: flex; border-bottom: 1px solid var(--border); background: #fff; }
+.cs-tab-btn{
+  background: none; border: none; cursor: pointer;
+  padding: 16px 20px; font-size: 14px; font-weight: 600; color: var(--text-soft);
+  border-bottom: 2px solid transparent; margin-bottom: -1px;
+}
+.cs-tab-btn.active{ color: var(--orange); border-bottom-color: var(--orange); }
+.cs-tab-panel{ display: none; background: var(--gray-bg); border: 1px solid var(--border); border-top: none; padding: 24px; }
+.cs-tab-panel.active{ display: block; }
+.cs-tab-panel p{ font-size: 14px; line-height: 1.75; color: #3A3A3A; margin: 0 0 14px; }
+
+/* ---- Curriculum accordion ---- */
+.cs-accordion-item{ background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+.cs-accordion-head{
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 16px; cursor: pointer; font-size: 14px; font-weight: 600;
+}
+.cs-accordion-head .right{ display: flex; align-items: center; gap: 10px; color: var(--text-soft); font-weight: 500; font-size: 13px; }
+.cs-accordion-item.open .cs-accordion-head{ color: var(--orange); }
+.cs-accordion-body{ display: none; border-top: 1px solid var(--border); }
+.cs-accordion-item.open .cs-accordion-body{ display: block; }
+.cs-lesson{
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; font-size: 13px; border-top: 1px solid var(--border);
+}
+.cs-lesson:first-child{ border-top: none; }
+.cs-lesson.active{ color: var(--orange); font-weight: 600; }
+.cs-lesson-left{ display: flex; align-items: center; gap: 10px; }
+.cs-lesson-right{ display: flex; align-items: center; gap: 10px; }
+.cs-preview-btn{
+  background: #2C7BE5; color: #fff; border: none; border-radius: 4px;
+  font-size: 12px; padding: 5px 12px; cursor: pointer;
+}
+.cs-lock{ color: var(--text-soft); }
+
+/* ---- FAQ accordion (reuse .cs-accordion but simpler) ---- */
+.cs-faq-item{ background: #fff; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+.cs-faq-head{
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px; cursor: pointer; font-size: 14px; font-weight: 600;
+}
+.cs-faq-item.open .cs-faq-head{ color: var(--orange); }
+.cs-faq-body{ display: none; padding: 0 16px 16px; font-size: 13px; line-height: 1.7; color: var(--text-soft); }
+.cs-faq-item.open .cs-faq-body{ display: block; }
+
+/* ---- Reviews ---- */
+.cs-review-summary{ display: flex; gap: 32px; align-items: center; margin-bottom: 24px; flex-wrap: wrap; }
+.cs-score{ text-align: center; }
+.cs-score .num{ font-size: 40px; font-weight: 700; }
+.cs-score .stars{ color: var(--orange); font-size: 14px; margin: 4px 0; }
+.cs-score .count{ font-size: 12px; color: var(--text-soft); }
+.cs-bars{ flex: 1; min-width: 220px; display: flex; flex-direction: column; gap: 6px; }
+.cs-bar-row{ display: flex; align-items: center; gap: 10px; font-size: 12px; color: var(--text-soft); }
+.cs-bar-track{ flex: 1; height: 6px; background: #EDEDED; border-radius: 4px; overflow: hidden; }
+.cs-bar-fill{ height: 100%; background: var(--orange); }
+
+.cs-review{ display: flex; gap: 14px; padding: 18px 0; border-top: 1px solid var(--border); }
+.cs-review:first-child{ border-top: none; }
+.cs-review .avatar{ width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg,#F2A93B,#F0654A); flex-shrink: 0; }
+.cs-review-head{ display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 4px; }
+.cs-review-head .name{ font-weight: 700; }
+.cs-review-head .date{ color: var(--text-soft); }
+.cs-review p{ font-size: 13px; color: #4B4B4B; margin: 0 0 6px; }
+.cs-review .reply{ font-size: 12px; color: var(--orange); font-weight: 600; text-decoration: none; }
+
+.cs-pagination{ display: flex; gap: 8px; justify-content: center; margin-top: 20px; }
+.cs-pagination button{
+  width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border);
+  background: #fff; cursor: pointer; font-size: 13px;
+}
+.cs-pagination button.active{ background: var(--black); color: #fff; border-color: var(--black); }
+
+/* ---- Instructor tab ---- */
+.cs-instructor{ display: flex; gap: 18px; align-items: flex-start; }
+.cs-instructor .avatar{ width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg,#0F8B8D,#111); flex-shrink: 0; }
+.cs-instructor h4{ margin: 0 0 6px; font-size: 16px; }
+
+/* ---- Comment form ---- */
+.cs-comment-box{ background: #fff; border: 1px solid var(--border); border-top: none; padding: 24px; }
+.cs-comment-box h3{ font-size: 16px; margin: 0 0 4px; }
+.cs-comment-box .hint{ font-size: 13px; color: var(--text-soft); margin-bottom: 16px; }
+.cs-form-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.cs-input, .cs-textarea{
+  width: 100%; border: 1px solid var(--border); border-radius: 6px;
+  padding: 12px 14px; font-size: 13px; font-family: inherit;
+}
+.cs-textarea{ resize: vertical; min-height: 90px; margin-bottom: 14px; }
+.cs-check{ display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-soft); margin-bottom: 16px; }
+
+/* ---- Footer ---- */
+.cs-footer{ background: var(--gray-bg); border-top: 1px solid var(--border); padding: 48px 0 20px; }
+.cs-foot-grid{ display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 32px; }
+.cs-foot-grid h5{ font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; margin: 0 0 14px; }
+.cs-foot-grid ul{ list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.cs-foot-grid a{ color: var(--text-soft); text-decoration: none; font-size: 13px; }
+.cs-foot-grid a.active{ color: var(--orange); }
+.cs-foot-about p{ font-size: 13px; color: var(--text-soft); line-height: 1.7; max-width: 280px; }
+.cs-foot-social{ display: flex; gap: 10px; margin-top: 14px; }
+.cs-foot-social a{ width: 30px; height: 30px; border-radius: 50%; background: #fff; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 13px; }
+.cs-copyright{ text-align: center; font-size: 12px; color: var(--text-soft); border-top: 1px solid var(--border); margin-top: 32px; padding-top: 18px; }
+
+@media (max-width: 900px){
+  .cs-hero-grid, .cs-body-grid, .cs-form-row{ grid-template-columns: 1fr; }
+  .cs-nav{ display: none; } 
+  .cs-foot-grid{ grid-template-columns: 1fr 1fr; }
+  .cs-tabs{ flex-wrap: wrap; }
+}
+
+</style>
+</head>
+<body class="cs-page">
+
+<!-- Header -->
+<header class="cs-header">
+  <div class="cs-wrap">
+    <a href="#" class="cs-logo"><span class="ico"></span>EduPress</a>
+    <nav class="cs-nav">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#" class="active">Courses</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Page ▾</a></li>
+        <li><a href="#">LearnPress Add-On</a></li>
+        <li><a href="#">Premium Theme</a></li>
+      </ul>
+    </nav>
+    <div class="cs-header-right">
+      <a href="#">Login / Register</a>
+      <button class="cs-search-btn" aria-label="Tìm kiếm">🔍</button>
+    </div>
+  </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="cs-breadcrumb">
+  <div class="cs-wrap">
+    <a href="#">Homepage</a> / <a href="#">Course</a> /
+    <span class="current">The Ultimate Guide To The Best WordPress LMS Plugin</span>
+  </div>
+</div>
+
+<!-- Hero (đen) -->
+<section class="cs-hero">
+  <div class="cs-wrap cs-hero-grid">
+    <div>
+      <span class="cs-badge">Photography</span>
+      <h1>The Ultimate Guide To The Best WordPress LMS Plugin</h1>
+      <div class="cs-byline">by <a href="#">Determined Poitras</a></div>
+      <div class="cs-meta">
+        <span><span class="dot">⏱</span> 2 Weeks</span>
+        <span><span class="dot">👥</span> 156 Students</span>
+        <span><span class="dot">📶</span> All levels</span>
+        <span><span class="dot">📘</span> 20 Lessons</span>
+        <span><span class="dot">❓</span> 3 Quizzes</span>
+      </div>
+    </div>
+    <div class="cs-promo">
+      <img src="https://images.unsplash.com/photo-1596496181848-3091d4878b24?w=400&q=80" alt="Tạo website LMS">
+      <div class="cs-promo-price">
+        <span class="old">$99.0</span>
+        <span class="new">$49.0</span>
+      </div>
+      <a href="#" class="cs-btn-orange">Start Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- Body -->
+<section class="cs-body">
+  <div class="cs-wrap cs-body-grid">
+    <div>
+      <!-- Tabs -->
+      <div class="cs-tabs">
+        <button class="cs-tab-btn active" data-tab="overview">Overview</button>
+        <button class="cs-tab-btn" data-tab="curriculum">Curriculum</button>
+        <button class="cs-tab-btn" data-tab="instructor">Instructor</button>
+        <button class="cs-tab-btn" data-tab="faqs">FAQs</button>
+        <button class="cs-tab-btn" data-tab="reviews">Reviews</button>
+      </div>
+
+      <!-- Overview -->
+      <div class="cs-tab-panel active" data-tab="overview">
+        <p>LearnPress is a comprehensive WordPress LMS Plugin for WordPress. This is one of the best WordPress LMS Plugins which can be used to easily create & sell courses online. You can create a course curriculum with lessons & quizzes included which is managed with an easy-to-use interface for users. Having this WordPress LMS Plugin, now you have a chance to quickly and easily create education, online school, online-course websites with no coding knowledge required.</p>
+        <p>LearnPress is free and always will be, but it is still a premium high-quality WordPress Plugin that definitely helps you with making money from your WordPress Based LMS. Just try and see how amazing it is. LearnPress WordPress Online Course plugin is lightweight and super powerful with lots of Add-Ons to empower its core system. How to use WPML Add-on for LearnPress? No comments yet! You be the first to comment.</p>
+      </div>
+
+      <!-- Curriculum -->
+      <div class="cs-tab-panel" data-tab="curriculum">
+        <div class="cs-accordion-item">
+          <div class="cs-accordion-head"><span>Lessons With Video Content</span><span class="right">5 Lessons · 45 Mins</span></div>
+        </div>
+
+        <div class="cs-accordion-item open">
+          <div class="cs-accordion-head"><span>Lessons With Video Content</span><span class="right">3 Lessons · 45 Mins</span></div>
+          <div class="cs-accordion-body">
+            <div class="cs-lesson">
+              <div class="cs-lesson-left">📄 Lessons with video content</div>
+              <div class="cs-lesson-right"><button class="cs-preview-btn">Preview</button> 12:30 ✓</div>
+            </div>
+            <div class="cs-lesson active">
+              <div class="cs-lesson-left">📄 Lessons with video content</div>
+              <div class="cs-lesson-right"><button class="cs-preview-btn">Preview</button> 10:05 ✓</div>
+            </div>
+            <div class="cs-lesson">
+              <div class="cs-lesson-left">📄 Lessons with video content</div>
+              <div class="cs-lesson-right"><span class="cs-lock">2:25 🔒</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cs-accordion-item">
+          <div class="cs-accordion-head"><span>Lessons With Video Content</span><span class="right">5 Lessons · 45 Mins</span></div>
+        </div>
+        <div class="cs-accordion-item">
+          <div class="cs-accordion-head"><span>Lessons With Video Content</span><span class="right">5 Lessons · 45 Mins</span></div>
+        </div>
+        <div class="cs-accordion-item">
+          <div class="cs-accordion-head"><span>Lessons With Video Content</span><span class="right">5 Lessons · 45 Mins</span></div>
+        </div>
+      </div>
+
+      <!-- Instructor -->
+      <div class="cs-tab-panel" data-tab="instructor">
+        <div class="cs-instructor">
+          <div class="avatar"></div>
+          <div>
+            <h4>Determined Poitras</h4>
+            <p>Giảng viên với hơn 8 năm kinh nghiệm xây dựng nền tảng học trực tuyến, đã đồng hành cùng hơn 15.000 học viên trên EduPress.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FAQs -->
+      <div class="cs-tab-panel" data-tab="faqs">
+        <div class="cs-faq-item">
+          <div class="cs-faq-head"><span>What Does Royalty Free Mean?</span><span>⌄</span></div>
+        </div>
+        <div class="cs-faq-item open">
+          <div class="cs-faq-head"><span>What Does Royalty Free Mean?</span><span>⌃</span></div>
+          <div class="cs-faq-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras facilisis faucibus odio arcu duis dui, adipiscing facilisis. Uma, donec turpis egestas volutpat. Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in.</div>
+        </div>
+        <div class="cs-faq-item">
+          <div class="cs-faq-head"><span>What Does Royalty Free Mean?</span><span>⌄</span></div>
+        </div>
+        <div class="cs-faq-item">
+          <div class="cs-faq-head"><span>What Does Royalty Free Mean?</span><span>⌄</span></div>
+        </div>
+      </div>
+
+      <!-- Reviews -->
+      <div class="cs-tab-panel" data-tab="reviews">
+        <div class="cs-review-summary">
+          <div class="cs-score">
+            <div class="num">4.0</div>
+            <div class="stars">★★★★☆</div>
+            <div class="count">based on 146,151 ratings</div>
+          </div>
+          <div class="cs-bars">
+            <div class="cs-bar-row">5★<div class="cs-bar-track"><div class="cs-bar-fill" style="width:90%"></div></div>90%</div>
+            <div class="cs-bar-row">4★<div class="cs-bar-track"><div class="cs-bar-fill" style="width:5%"></div></div>5%</div>
+            <div class="cs-bar-row">3★<div class="cs-bar-track"><div class="cs-bar-fill" style="width:2%"></div></div>2%</div>
+            <div class="cs-bar-row">2★<div class="cs-bar-track"><div class="cs-bar-fill" style="width:2%"></div></div>2%</div>
+            <div class="cs-bar-row">1★<div class="cs-bar-track"><div class="cs-bar-fill" style="width:1%"></div></div>1%</div>
+          </div>
+        </div>
+
+        <div class="cs-review">
+          <div class="avatar"></div>
+          <div style="flex:1;">
+            <div class="cs-review-head"><span class="name">Laura Hipster</span><span class="date">October 03, 2022</span></div>
+            <p>Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar ultrices mi vitel eleifend lorem. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.</p>
+            <a href="#" class="reply">↩ Reply</a>
+          </div>
+        </div>
+        <div class="cs-review">
+          <div class="avatar"></div>
+          <div style="flex:1;">
+            <div class="cs-review-head"><span class="name">Laura Hipster</span><span class="date">October 03, 2022</span></div>
+            <p>Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar ultrices mi vitel eleifend lorem. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.</p>
+            <a href="#" class="reply">↩ Reply</a>
+          </div>
+        </div>
+        <div class="cs-review">
+          <div class="avatar"></div>
+          <div style="flex:1;">
+            <div class="cs-review-head"><span class="name">Laura Hipster</span><span class="date">October 03, 2022</span></div>
+            <p>Quisque nec non amet quis. Varius tellus justo odio parturient mauris curabitur lorem in. Pulvinar ultrices mi vitel eleifend lorem. Id sed faucibus bibendum augue id cras purus. At eget euismod cursus non. Molestie dignissim sed volutpat feugiat vel.</p>
+            <a href="#" class="reply">↩ Reply</a>
+          </div>
+        </div>
+
+        <div class="cs-pagination">
+          <button data-page="1" class="active">1</button>
+          <button data-page="2">2</button>
+          <button data-page="3">3</button>
+          <button data-page="next">›</button>
+        </div>
+      </div>
+
+      <!-- Leave a comment (dùng chung mọi tab) -->
+      <div class="cs-comment-box">
+        <h3>Leave A Comment</h3>
+        <div class="hint">Your email address will not be published. Required fields are marked *</div>
+        <div class="cs-form-row">
+          <input class="cs-input" type="text" placeholder="Name*">
+          <input class="cs-input" type="email" placeholder="Email*">
+        </div>
+        <textarea class="cs-textarea" placeholder="Comment"></textarea>
+        <label class="cs-check"><input type="checkbox"> Save my name, email in this browser for the next time I comment</label>
+        <button class="cs-btn-orange">Posts Comment</button>
+      </div>
+    </div>
+
+    <!-- Sidebar giữ chỗ cho widget (liên quan khoá học, v.v.) -->
+    <aside></aside>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="cs-footer">
+  <div class="cs-wrap">
+    <div class="cs-foot-grid">
+      <div class="cs-foot-about">
+        <a href="#" class="cs-logo" style="margin-bottom:14px;"><span class="ico"></span>EduPress</a>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="cs-foot-social">
+          <a href="#">f</a><a href="#">p</a><a href="#">x</a><a href="#">◎</a><a href="#">▶</a>
+        </div>
+      </div>
+      <div>
+        <h5>Get Help</h5>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Latest Articles</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="#">Art & Design</a></li>
+          <li><a href="#" class="active">Business</a></li>
+          <li><a href="#">IT & Software</a></li>
+          <li><a href="#">Languages</a></li>
+          <li><a href="#">Programming</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact Us</h5>
+        <ul>
+          <li>Address: 2321 New Design Str, Lorem Ipsum10 Hudson Yards, USA</li>
+          <li>Tel: +1 (123) 2500-567-8988</li>
+          <li>Mail: supportlms@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="cs-copyright">Copyright © 2024 LearnPress LMS | Powered by ThimPress</div>
+  </div>
+</footer>
+
+<script>
+/**
+ * course-single.js
+ * Xử lý tương tác cho trang Course Single: chuyển tab, mở/đóng accordion
+ * (Curriculum + FAQs), chọn trang phân trang cho Reviews.
+ */
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* Tabs: Overview / Curriculum / Instructor / FAQs / Reviews */
+  const tabButtons = document.querySelectorAll('.cs-tab-btn');
+  const tabPanels = document.querySelectorAll('.cs-tab-panel');
+
+  tabButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = btn.dataset.tab;
+
+      tabButtons.forEach(b => b.classList.remove('active'));
+      tabPanels.forEach(p => p.classList.remove('active'));
+
+      btn.classList.add('active');
+      document.querySelector(`.cs-tab-panel[data-tab="${target}"]`).classList.add('active');
+    });
+  });
+
+  /* Accordion dùng chung cho Curriculum + FAQs */
+  document.querySelectorAll('.cs-accordion-head, .cs-faq-head').forEach(head => {
+    head.addEventListener('click', () => {
+      const item = head.closest('.cs-accordion-item, .cs-faq-item');
+      item.classList.toggle('open');
+    });
+  });
+
+  /* Pagination Reviews (demo — chỉ đổi trạng thái active) */
+  document.querySelectorAll('.cs-pagination button[data-page]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.cs-pagination button[data-page]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+});
+
+</script>
+</body>
+</html>
