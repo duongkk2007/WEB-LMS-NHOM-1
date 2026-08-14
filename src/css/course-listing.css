@@ -9,7 +9,7 @@
     --color-green: #55BE24;
     --color-border: #EAEAEA;
     --color-border-black: #000000;
-    --container-width: 1920px;
+    --container-width: 1290px;
 
     --font-base: 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
 }
@@ -50,15 +50,18 @@ ul {
     height: 72px;
     background-color: var(--color-white);
     border-bottom: 1px solid var(--color-border);
-    
+    position: sticky;
 }
 
 /* Inner Header */
 .inner-header {
     max-width: 1290px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
+    padding: 0 65px;
     gap: auto;
 }
 
@@ -67,9 +70,6 @@ ul {
     display: flex;
     align-items: center;
     gap: 4px;
-
-    width: 166.3px;
-    height: 30px;
 }
 
 .logo-icon-header img{
@@ -90,12 +90,6 @@ ul {
     gap: 0;
 }
 
-.nav > div {
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
 .home-nav,
 .course-nav,
 .blog-nav,
@@ -103,21 +97,18 @@ ul {
 .learnpress-nav,
 .theme-nav {
     height: 72px;
-
     display: flex;
     align-items: center;
-    gap: 4px;
     padding: 0 20px;
-
-    font-weight: 600;
     font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
     line-height: 120%;
 }
 
 .course-nav {
     background-color: var(--color-white-grey);
     color: var(--color-primary);
-    font-weight: 600;
 }
 
 /* Header Right */
@@ -143,7 +134,8 @@ ul {
 /* BREAKCRUMB */
 .breakcrumb {
     height: 44px;
-    padding: 10px;
+    max-width: var(--container);
+    padding: 10px 10px;
     margin: 0 auto;
 
     background-color: var(--color-white-grey);
@@ -161,19 +153,17 @@ ul {
 
 /* MAIN LAYOUT*/
 .main {
-    position: relative;
-    top: 60px;
-    max-width: 1290px;
-    height: 1810px;
-    margin: 0 auto;
+    max-width: var(--container);
+    margin: 65px auto 60px;
     padding: 10px 20px 60px;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: flex-start;
 }
 
 .container-main {
     flex: 1;
+    min-width: 0;
 }
 
 /* PAGE HEADER */
@@ -183,11 +173,12 @@ ul {
     justify-content: space-between;
     margin-bottom: 40px;
     gap: auto;
+    flex-wrap: wrap;
 }
 
 .page-title {
     font-size: 36px;
-    color: var(--black);
+    color: var(--color-text);
 }
 
 .page-search {
@@ -200,9 +191,7 @@ ul {
 
 .search-box {
     position: relative;
-    flex: 1;
-    display: flex;
-    align-items: center;
+    width: 270px;
     border-bottom: 1px solid var(--color-border-black);
     padding: 0 0 0 4px;
 }
@@ -211,7 +200,7 @@ ul {
   font-size: 18px;
   color: var(--color-grey);        
 }
-
+/* DO LAI DEN DAY */
 .search-icon-main {
     position: absolute;
     right: 0;
@@ -354,3 +343,208 @@ ul {
 
 
 /* PAGINATION */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.pagination div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-border);
+    border-radius: 24px;
+
+    color: var(--color-text);
+    background-color: var(--color-white);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.pagination .page-btn-active {
+    background-color: #000000;
+    color: var(--color-white);
+    border-color: var(--color-border-black);
+}
+
+.pagination .arrow {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.pagination .arrow-active {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.arrow-active .special-number {
+    color: var(--color-primary);
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.category-title,
+.instructors-title,
+.price-title,
+.review-title,
+.level-title {
+    font-size: 20px;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+.category-list li,
+.instructors-list li,
+.price-list li,
+.stars-list li,
+.level-list li {
+    display: flex;
+    right: 0;
+}
+
+.category-list label,
+.instructors-list label,
+.price-list label,
+.stars-list label,
+.level-list label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    flex: 1;
+}
+
+.category-list input,
+.instructors-list input,
+.price-list input,
+.stars-list input,
+.level-list input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-dark-gray);
+    cursor: pointer;
+}
+
+.count {
+    color: var(--color-dark-gray);
+    font-size: 18px;
+}
+
+/* Stars */
+.stars {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.star-yellow {
+    width: 16px;
+    height: 16px;
+}
+
+.star-gray {
+    width: 16px;
+    height: 16px;
+    filter: grayscale(100%) opacity(1);
+}
+
+/* FOOTER */
+.footer {
+    background: var(--color-white-grey);
+    padding: 0 0 90px 30px;
+    margin-top: 90px;
+}
+
+.footer-container {
+    max-width: 1290px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 30px;
+}
+
+.footer-column {
+    gap: 32px;
+}
+
+.logo-footer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 120%;
+    letter-spacing: 0%;
+    color: var(--color-text);
+    margin-bottom: 32px;
+}
+
+.logo-footer img {
+    width: 39.3px;
+    height: 30px;
+}
+
+.footer-text {
+    font-size: 18px;
+    color: var(--color-dark-gray);
+    max-width: 341px;
+}
+
+.get-help-title,
+.programs-title,
+.contact-us-title {
+    font-size: 20px;
+    color: var(--color-text);
+    margin-bottom: 32px;
+}
+
+.footer-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--color-dark-gray);
+    cursor: pointer;
+}
+
+.footer-list .special-text {
+    color: var(--color-primary);
+}
+
+.footer-contact p {
+    font-size: 14px;
+    color: var(--color-dark-gray);
+    margin-bottom: 8px;
+}
+
+.social-list {
+    display: flex;
+    gap: 12px;
+}
+
+.social-link img {
+    width: 16px;
+    height: 16px;
+}
+
+.footer-bottom {
+    margin-top: 70px;
+    padding-top: 0 32px 0 0;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-dark-gray);
+}
