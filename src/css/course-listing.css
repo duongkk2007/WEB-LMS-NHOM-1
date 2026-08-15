@@ -136,15 +136,26 @@ ul {
     height: 44px;
     max-width: var(--container);
     padding: 10px 10px;
-    margin: 0 auto;
 
     background-color: var(--color-white-grey);
-    color: var(--color-dark-gray);
-    font-size: 14px;
 
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.content-brb {
+    margin: 0 150px;
+    background-color: var(--color-white-grey);
+    color: var(--color-dark-gray);
+    font-size: 16px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.content-brb .arrow {
+    font-size: 20px;
 }
 
 .fading {
@@ -154,10 +165,10 @@ ul {
 /* MAIN LAYOUT*/
 .main {
     max-width: var(--container);
-    margin: 65px auto 60px;
-    padding: 10px 20px 60px;
+    margin: 20px 157.5px;
+    padding: 0;
     display: flex;
-    gap: 20px;
+    gap: 30px;
     align-items: flex-start;
 }
 
@@ -200,7 +211,7 @@ ul {
   font-size: 18px;
   color: var(--color-grey);        
 }
-/* DO LAI DEN DAY */
+
 .search-icon-main {
     position: absolute;
     right: 0;
@@ -225,7 +236,6 @@ ul {
     right: 0;
     top: -2px;
 }
-
 
 /* COURSE LIST */
 .course-list {
@@ -465,7 +475,7 @@ ul {
 /* FOOTER */
 .footer {
     background: var(--color-white-grey);
-    padding: 0 0 90px 30px;
+    padding: 0 90px 0 30px;
     margin-top: 90px;
 }
 
