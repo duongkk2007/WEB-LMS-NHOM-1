@@ -154,29 +154,28 @@ ul {
 }
 
 .content-brb .arrow {
-    font-size: 20px;
+    font-size: 25px;
+    color: var(--color-grey);
 }
 
 .fading {
     color: var(--color-grey);
 }
 
-
-
-/* ========== MAIN LAYOUT ========== */
+/* MAIN LAYOUT*/
 .main {
-    width: 100%;
-    background: var(--color-white);
-    padding: 40px 0 80px;
-}
-
-.container-main {
     max-width: var(--container-width);
-    margin: 20px 100px;
+    margin: 60px 100px;
     padding: 0;
     display: flex;
     gap: 30px;
     align-items: flex-start;
+}
+
+.container-main {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
 }
 
 /* CONTENT LEFT */
@@ -186,10 +185,6 @@ ul {
 }
 
 /* ========== BLOG POST ========== */
-.blog-post {
-    margin-bottom: 60px;
-}
-
 /* Title + Meta */
 .page-header {
     margin-bottom: 40px;
@@ -313,7 +308,6 @@ ul {
 .post-navigation {
     display: flex;
     gap: 30px;
-    margin-bottom: 60px;
 }
 
 .arrow-navi {
@@ -380,10 +374,6 @@ ul {
 }
 
 /* ========== COMMENTS ========== */
-.comments {
-    margin-bottom: 60px;
-}
-
 .comments-title {
     font-size: 20px;
     margin-bottom: 12px;
@@ -514,9 +504,6 @@ ul {
 }
 
 /*COMMENT FORM*/
-.comment-form {
-    margin-top: 10px;
-}
 
 .leave-comment-title {
     font-size: 20px;
@@ -572,9 +559,9 @@ ul {
 }
 
 .form-checkbox input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    margin-top: 7px;
+    width: 14px;
+    height: 14px;
+    margin-top: 6px;
     accent-color: var(--color-dark-gray);
     cursor: pointer;
 }
@@ -696,7 +683,8 @@ ul {
 .footer {
     background: var(--color-white-grey);
     border-top: 1px solid var(--color-border);
-    padding: 90px 0 32px 0;     
+    padding: 90px 0 32px 0; 
+    margin-top: 90px;    
 }
 
 .footer-container {
@@ -768,7 +756,6 @@ ul {
 }
 
 .footer-bottom {
-    max-width: var(--container-width);
     margin-top: 90px;
     padding: 32px 0 0 0;                 
     border-top: 1px solid var(--color-border);
