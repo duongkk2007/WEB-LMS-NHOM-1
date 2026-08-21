@@ -177,7 +177,7 @@ ul {
     margin: 20px 157.5px;
     padding: 0;
     display: flex;
-    gap: 40px;
+    gap: 30px;
     align-items: flex-start;
 }
 
@@ -274,7 +274,6 @@ ul {
     background: var(--color-white);
     border: 1px solid var(--color-border);
     border-radius: 8px;
-    font-weight: 1px;
 }
 
 .active-tag a {
@@ -293,144 +292,132 @@ ul {
 .post-share {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 20px;
 }
 
 .share-label {
-    font-size: 15px;
-    font-weight: 500;
+    font-size: 18px;
     color: var(--color-dark-gray);
 }
 
 .share-list {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
 }
 
 .share-list li a img {
-    width: 18px;
-    height: 18px;
-    opacity: 0.75;
-    transition: opacity 0.2s;
-}
-
-.share-list li a:hover img {
-    opacity: 1;
+    width: 20px;
+    height: 20px;
 }
 
 /* ========== POST NAVIGATION ========== */
 .post-navigation {
     display: flex;
-    gap: 20px;
-    margin: 48px 0 56px;
+    gap: 30px;
+    margin-bottom: 60px;
 }
 
-.prev-article,
-.next-article {
-    flex: 1;
-}
-
-.prev-article a,
-.next-article a {
+.arrow-navi {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    background-color: var(--color-white-grey);
+    color: var(--color-grey);
     display: flex;
-    flex-direction: column;
-    gap: 6px;
-    padding: 20px 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-navi span {
+    font-size: 24px;
+    position: relative;
+    bottom: 2px;
+}
+
+.arrow-navi-active {
+    color: var(--color-primary);
+}
+
+.related-article-prev, 
+.related-article-next {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 30px;
     background: var(--color-white);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
-    transition: border-color 0.2s, box-shadow 0.2s;
-    position: relative;
+    border-radius: 20px;
+    cursor: pointer;
 }
 
-.prev-article a:hover,
-.next-article a:hover {
-    border-color: #ddd;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+.related-article-prev:hover,
+.related-article-next:hover {
+    border-color: var(--color-white-grey);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-.prev-article .label,
-.next-article .label {
-    font-size: 13px;
-    color: var(--color-grey);
+.article-info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }
 
-.prev-article .title,
-.next-article .title {
-    font-size: 15px;
-    font-weight: 600;
+.article-info .label {
+    font-size: 18px;
+    color: var(--color-dark-gray);
+}
+
+.article-info .title {
+    font-size: 20px;
     color: var(--color-text);
-    line-height: 1.4;
 }
 
-/* Arrow indicators */
-.prev-article a::before {
-    content: "‹";
-    position: absolute;
-    left: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 22px;
-    color: var(--color-grey);
-}
-
-.next-article a::after {
-    content: "›";
-    position: absolute;
-    right: 16px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 22px;
-    color: var(--color-grey);
-}
-
-.prev-article a {
-    padding-left: 40px;
-}
-
-.next-article a {
-    padding-right: 40px;
+.related-article-next {
+    justify-content: flex-end;
     text-align: right;
 }
 
 /* ========== COMMENTS ========== */
 .comments {
-    margin-bottom: 48px;
+    margin-bottom: 60px;
 }
 
 .comments-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 6px;
+    font-size: 20px;
+    margin-bottom: 12px;
 }
 
 .comments-count {
-    font-size: 14px;
-    color: var(--color-grey);
-    margin-bottom: 28px;
+    font-size: 18px;
+    color: var(--color-dark-gray);
+    margin-bottom: 30px;
 }
 
 .comments-list {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+    gap: 20px;
 }
 
+/* Comment item */
 .comment-item {
-    list-style: none;
+    border-top: 1px solid var(--color-border);
+    padding-top: 20px;
 }
 
 .comment {
     display: flex;
-    gap: 16px;
+    gap: 20px;
 }
 
 .comment-avatar img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
+    width: 60px;
+    height: 60px;
+    border-radius: 43px;
 }
 
 .comment-body {
@@ -445,44 +432,41 @@ ul {
 }
 
 .comment-author {
-    font-size: 15px;
-    font-weight: 600;
+    font-size: 16px;
     color: var(--color-text);
 }
 
 .comment-date {
-    font-size: 13px;
-    color: var(--color-grey);
+    font-size: 16px;
+    color: var(--color-dark-gray);
 }
 
 .comment-text {
-    font-size: 14px;
-    line-height: 1.65;
-    color: #444;
-    margin-bottom: 10px;
+    font-size: 18px;
+    color: var(--color-dark-gray);
+    margin-bottom: 8px;
 }
 
 .reply-btn {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    font-size: 13px;
-    color: var(--color-primary);
-    font-weight: 500;
+    gap: 8px;
+    font-size: 16px;
+    color: var(--color-text);
 }
 
 .reply-btn img {
-    width: 14px;
-    height: 14px;
+    width: 14.74px;
+    height: 11.25px;
 }
 
 /* Nested comments */
 .children {
-    margin-top: 24px;
-    margin-left: 64px;
+    margin-top: 20px;
+    margin-left: 80px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
 }
 
 /* PAGINATION */
@@ -516,47 +500,45 @@ ul {
     border-color: var(--color-border-black);
 }
 
-.pagination .arrow {
+.pagination .arrow-pargi {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
 }
 
-.pagination .arrow-active {
+.pagination .arrow-pargi-active {
     display: flex;
     flex-direction: column;
     padding: 10px;
 }
 
-.arrow-active .special-number {
+.arrow-pargi-active .special-number {
     color: var(--color-primary);
 }
 
-/* ========== COMMENT FORM ========== */
+/*COMMENT FORM*/
 .comment-form {
-    margin-top: 16px;
+    margin-top: 10px;
 }
 
 .leave-comment-title {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 8px;
+    font-size: 20px;
 }
 
 .leave-comment-note {
-    font-size: 14px;
-    color: var(--color-grey);
-    margin-bottom: 24px;
+    font-size: 18px;
+    color: var(--color-dark-gray);
+    margin-bottom: 30px;
 }
 
 .comment-form form {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 20px;
 }
 
 .form-row {
     display: flex;
-    gap: 16px;
+    gap: 20px;
 }
 
 .form-group {
@@ -566,35 +548,27 @@ ul {
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 12px 16px;
-    font-size: 14px;
+    padding: 10px 16px;
+    font-size: 18px;
     font-family: var(--font-base);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-grey);
     border-radius: 8px;
-    outline: none;
-    transition: border-color 0.2s;
-    background: var(--color-white);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: var(--color-primary);
+    border-color: var(--color-white-grey);
 }
 
 .form-group textarea {
-    resize: vertical;
-    min-height: 140px;
-}
-
-.form-checkbox {
-    margin-top: 4px;
+    min-height: 110px;
 }
 
 .form-checkbox label {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    font-size: 14px;
+    gap: 4px;
+    font-size: 18px;
     color: var(--color-dark-gray);
     cursor: pointer;
 }
@@ -602,24 +576,21 @@ ul {
 .form-checkbox input[type="checkbox"] {
     width: 16px;
     height: 16px;
-    margin-top: 2px;
-    accent-color: var(--color-primary);
+    margin-top: 7px;
+    accent-color: var(--color-dark-gray);
     cursor: pointer;
 }
 
 .btn-post-comment {
     align-self: flex-start;
-    margin-top: 8px;
-    padding: 12px 32px;
-    font-size: 15px;
-    font-weight: 600;
+    padding: 10px 24px;
+    font-size: 18px;
     font-family: var(--font-base);
     color: var(--color-white);
     background: var(--color-primary);
     border: none;
-    border-radius: 30px;
+    border-radius: 24px;
     cursor: pointer;
-    transition: background 0.2s, transform 0.15s;
 }
 
 .btn-post-comment:hover {
@@ -628,33 +599,36 @@ ul {
 
 /* ========== SIDEBAR ========== */
 .sidebar {
-    width: 300px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
     flex-shrink: 0;
 }
 
-.sidebar-widget {
-    margin-bottom: 36px;
-}
-
 .widget-title {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 18px;
+    font-size: 20px;
+    margin-bottom: 20px;
     color: var(--color-text);
 }
 
 /* Category */
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .category-list li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 0;
+    gap: 4px;
 }
 
 .category-list li a {
-    font-size: 15px;
-    color: #444;
-    transition: color 0.2s;
+    font-size: 18px;
+    color: var(--color-dark-gray);
 }
 
 .category-list li a:hover {
@@ -662,8 +636,8 @@ ul {
 }
 
 .category-list .count {
-    font-size: 14px;
-    color: var(--color-grey);
+    font-size: 18px;
+    color: var(--color-dark-gray);
 }
 
 /* Recent Posts */
@@ -675,24 +649,20 @@ ul {
 
 .recent-posts-list li a {
     display: flex;
-    gap: 12px;
+    gap: 16px;
     align-items: flex-start;
 }
 
 .recent-posts-list li img {
-    width: 70px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 6px;
     flex-shrink: 0;
+    width: 90px;
+    height: 90px;
+    border-radius: 12px;
 }
 
 .recent-posts-list li span {
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 1.4;
-    color: #333;
-    transition: color 0.2s;
+    font-size: 16px;
+    color: var(--color-text);
 }
 
 .recent-posts-list li a:hover span {
@@ -703,15 +673,14 @@ ul {
 .tags-widget .tags-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
 }
 
 .tags-widget .tags-list li a {
     display: inline-block;
     padding: 8px 20px;
-    font-size: 13px;
-    color: #555;
-    background: var(--color-white);
+    font-size: 18px;
+    color: var(--color-dark-gray);
     border: 1px solid var(--color-border);
     border-radius: 8px;
 
@@ -817,4 +786,4 @@ ul {
     color: var(--color-dark-gray);
 }
 
-/* NGÀY 20/8/2026 */
+/* NGÀY 21/8/2026 */
