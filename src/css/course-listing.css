@@ -61,8 +61,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
-    padding: 0 65px;
+    margin: 0 100px;
     gap: auto;
 }
 
@@ -136,16 +135,13 @@ ul {
 .breakcrumb {
     height: 44px;
     max-width: var(--container);
-    padding: 10px 10px;
-
     background-color: var(--color-white-grey);
-
     display: flex;
     align-items: center;
     gap: 10px;
 }
 .content-brb {
-    margin: 0 150px;
+    margin: 0 100px;
     background-color: var(--color-white-grey);
     color: var(--color-dark-gray);
     font-size: 16px;
@@ -166,7 +162,7 @@ ul {
 /* MAIN LAYOUT*/
 .main {
     max-width: var(--container);
-    margin: 20px 157.5px;
+    margin: 20px 100px;
     padding: 0;
     display: flex;
     gap: 30px;
@@ -246,6 +242,7 @@ ul {
 }
 
 .course-card {
+    height: 260px;
     display: flex;
     background-color: var(--color-white);
     border: 1px solid var(--color-border);
@@ -259,9 +256,6 @@ ul {
 
 .course-image {
     position: relative;
-    width: 410px;
-    min-width: 410px;
-    height: 250px;
 }
 
 .course-image img {
@@ -271,15 +265,19 @@ ul {
 
 .badge {
     width: 114px;
-    height: 40px;
+    height:40px;
     position: absolute;
-    top: 12px;
-    left: 12px;
+    top: 24px;
+    left: 20px;
     background: #000000;
     color: var(--white);
-    font-size: 12px;
-    padding: 12px 8px;
     border-radius: 8px;
+}
+
+.badge span {
+    position: absolute;
+    bottom: 2px;
+    padding: 8px 12px;
 }
 
 .course-content {
@@ -288,25 +286,25 @@ ul {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 16px;
+}
+
+
+.course-author {
+    margin-bottom: 12px;
 }
 
 .course-title {
     font-size: 20px;
     font-weight: 600;
     color: var(--black);
-    margin-top: 6px;
-}
-
-.course-author {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .course-stats {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    margin-bottom: 82px;
+    margin-bottom: 68px;
     font-size: 16px;
     color: var(--color-dark-gray);
 }
@@ -407,6 +405,16 @@ ul {
     gap: 30px;
 }
 
+.category-list,
+.instructors-list,
+.price-list,
+.stars-list,
+.level-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .category-title,
 .instructors-title,
 .price-title,
@@ -414,8 +422,7 @@ ul {
 .level-title {
     font-size: 20px;
     color: var(--color-text);
-    margin-bottom: 20px;
-    padding-bottom: 20px;
+    margin: 5px 0 20px 0;
 }
 
 .category-list li,
@@ -424,7 +431,7 @@ ul {
 .stars-list li,
 .level-list li {
     display: flex;
-    right: 0;
+    align-items: center;
 }
 
 .category-list label,
@@ -434,8 +441,7 @@ ul {
 .level-list label {
     display: flex;
     align-items: center;
-    gap: 10px;
-    cursor: pointer;
+    gap: 4px;
     flex: 1;
 }
 
@@ -444,12 +450,21 @@ ul {
 .price-list input,
 .stars-list input,
 .level-list input {
-    width: 16px;
-    height: 16px;
+    width: 12px;
+    height: 12px;
     accent-color: var(--color-dark-gray);
-    cursor: pointer;
+    position: relative;
+    top: 1px;
 }
 
+.category-list span,
+.instructors-list span,
+.price-list span,
+.stars-list span,
+.level-list span {
+    font-size: 18px;
+    color: var(--color-dark-gray)
+}
 .count {
     color: var(--color-dark-gray);
     font-size: 18px;
@@ -475,17 +490,14 @@ ul {
 
 /* FOOTER */
 .footer {
-    width: 100%;                          
-    margin-top: 100px;
     background: var(--color-white-grey);
     border-top: 1px solid var(--color-border);
-    padding: 60px 0 30px;                 
+    padding: 90px 0 32px 0;     
 }
 
 .footer-container {
-    max-width: var(--container-width);    
-    padding: 0 auto;  
-    margin: 20px 157.5px;                   
+    max-width: var(--container-width);
+    margin: 0 100px;   
     display: grid;
     grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
     gap: 30px;
@@ -524,12 +536,9 @@ ul {
     margin-bottom: 10px;
     font-size: 15px;
     color: var(--color-dark-gray);
-    cursor: pointer;
-    transition: color 0.2s;
 }
 
-.footer-list li:hover,
-.footer-list .special-text {
+.footer-list li:hover {
     color: var(--color-primary);
 }
 
@@ -548,22 +557,20 @@ ul {
 .social-link img {
     width: 18px;
     height: 18px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
 }
 
 .social-link:hover img {
-    opacity: 1;
+    opacity: 1.5;
 }
 
 .footer-bottom {
     max-width: var(--container-width);
-    margin: 40px auto 0;
-    padding: 24px 20px 0;                 
+    margin-top: 90px;
+    padding: 32px 0 0 0;                 
     border-top: 1px solid var(--color-border);
     text-align: center;
-    font-size: 13px;
+    font-size: 16px;
     color: var(--color-dark-gray);
 }
 
-/* NGÀY 19/8/2026 */
+/* NGÀY 21/8/2026 */
