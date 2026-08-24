@@ -10,7 +10,7 @@
     --color-green: #55BE24;
     --color-border: #EAEAEA;
     --color-border-black: #000000;
-    --container-width: 1920px;
+    --container-width: 1290px;
 
     --font-base: 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
 }
@@ -46,12 +46,22 @@ ul {
     list-style: none;
 }
 
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 0;
+}
+
 /* HEADER */
 .header {
     height: 72px;
     background-color: var(--color-white);
     border-bottom: 1px solid var(--color-border);
     position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 /* Inner Header */
@@ -61,8 +71,8 @@ ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 100px;
-    gap: auto;
+    margin: 0 auto;
+    padding: 0 30px;
 }
 
 /* Logo */
@@ -72,7 +82,7 @@ ul {
     gap: 4px;
 }
 
-.logo-icon-header img{
+.logo-icon-header img {
     width: 39.3px;
     height: 30px;
 }
@@ -81,7 +91,6 @@ ul {
     font-size: 28px;
     font-weight: bold;
 }
-
 
 /* Navigation */
 .nav {
@@ -131,24 +140,22 @@ ul {
     cursor: pointer;
 }
 
-/* BREAKCRUMB */
-.breakcrumb {
+/* BREADCRUMB */
+.breadcrumb {
     height: 44px;
-    max-width: var(--container-width);
-
+    width: 100%;
     background-color: var(--color-white-grey);
-
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
 .content-brb {
-    margin: 0 100px;
-    background-color: var(--color-white-grey);
+    max-width: var(--container-width);
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px;
     color: var(--color-dark-gray);
-    font-size: px;
-
+    font-size: 16px;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -163,17 +170,16 @@ ul {
     color: var(--color-grey);
 }
 
-
-
 /* ========== MAIN LAYOUT ========== */
-.main {
+.main-content {
     width: 100%;
     background: var(--color-white);
 }
 
 .container-main {
     max-width: var(--container-width);
-    margin: 60px 100px;
+    margin: 60px auto;
+    padding: 0 30px;
     display: flex;
     flex-direction: column;
     gap: 60px;
@@ -249,19 +255,25 @@ ul {
 }
 
 /* Map */
+.direct-line-map {
+    position: relative;
+}
+
 .map {
     width: 810px;
     height: 450px;
     border-radius: 20px;
+    overflow: hidden;
 }
 
 .position {
-    position: relative;
+    position: absolute;
     left: 570px;
-    top: 280px;
+    top: 220px;
+    z-index: 2;
 }
 
-/*COMMENT FORM*/
+/* COMMENT FORM */
 .leave-comment-title {
     font-size: 32px;
     margin-bottom: 20px;
@@ -296,6 +308,7 @@ ul {
     font-family: var(--font-base);
     border: 1px solid var(--color-grey);
     border-radius: 8px;
+    outline: none;
 }
 
 .form-group input:focus,
@@ -313,6 +326,7 @@ ul {
     gap: 4px;
     font-size: 18px;
     color: var(--color-dark-gray);
+    cursor: pointer;
 }
 
 .form-checkbox input[type="checkbox"] {
@@ -333,6 +347,7 @@ ul {
     border: none;
     border-radius: 24px;
     cursor: pointer;
+    transition: background 0.2s ease;
 }
 
 .btn-post-comment:hover {
@@ -349,7 +364,8 @@ ul {
 
 .footer-container {
     max-width: var(--container-width);
-    margin: 0 100px;   
+    margin: 0 auto;
+    padding: 0 30px;   
     display: grid;
     grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
     gap: 30px;
@@ -409,10 +425,11 @@ ul {
 .social-link img {
     width: 18px;
     height: 18px;
+    transition: opacity 0.2s ease;
 }
 
 .social-link:hover img {
-    opacity: 1.5;
+    opacity: 0.7;
 }
 
 .footer-bottom {
@@ -424,4 +441,4 @@ ul {
     color: var(--color-dark-gray);
 }
 
-/* NGÀY 21/8/2026 */
+/* SUA NGAY 24/8/2026 */

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best LearnPress WordPress Theme Collection For 2023 - EduPress</title>
-    <!-- FONT AWESOMR -->
+    <title>Contact Us - EduPress</title>
+    <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -17,44 +17,44 @@
     <header class="header">
         <div class="inner-header">
             <!-- LOGO -->
-            <div class="logo-header">
+            <a href="/" class="logo-header">
                 <div class="logo-icon-header">
                     <img src="../src/assets/images/banners/Logo.svg" alt="EduPress Logo">
                 </div>
                 <span class="header-title">EduPress</span>
-            </div>
+            </a>
 
             <!-- NAV -->
-            <nav class="nav">
-                <div class="home-nav">Home</div>
-                <div class="course-nav">Courses</div>
-                <div class="blog-nav">Blog</div>
-                <div class="page-nav">Page</div>
-                <div class="learnpress-nav">LearnPress Add-On</div>
-                <div class="theme-nav">Premium Theme</div>
+            <nav class="nav" aria-label="Main navigation">
+                <a href="/" class="home-nav">Home</a>
+                <a href="/courses" class="course-nav">Courses</a>
+                <a href="/blog" class="blog-nav">Blog</a>
+                <a href="/page" class="page-nav">Page</a>
+                <a href="/learnpress-add-on" class="learnpress-nav">LearnPress Add-On</a>
+                <a href="/premium-theme" class="theme-nav">Premium Theme</a>
             </nav>
 
             <!-- RIGHT -->
             <div class="header-right">
-                <div class="btn-login">Login / Register</div>
-                <div class="search-icon-header">
-                    <img src="../src/assets/icons/Icon-search-header.svg" alt="Search">
-                </div>
+                <a href="/login" class="btn-login">Login / Register</a>
+                <button type="button" class="search-icon-header" aria-label="Search">
+                    <img src="../src/assets/icons/Icon-search-header.svg" alt="">
+                </button>
             </div>
         </div>
     </header>
 
     <!-- BREADCRUMB -->
-    <div class="breakcrumb">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
         <div class="content-brb">
-            <span>Homepage</span>
+            <a href="/">Homepage</a>
             <span class="arrow">›</span>
-            <span class="fading">Contact</span>
+            <span class="fading" aria-current="page">Contact</span>
         </div>
-    </div>
+    </nav>
 
     <main class="main-content">
-    <!-- NEED A DIRECT LINE -->
+        <!-- NEED A DIRECT LINE -->
         <div class="container-main">
             <section class="direct-line">
                 <div class="direct-line-content">
@@ -66,22 +66,21 @@
                         <div class="contact-info">
                             <div class="contact-item">
                                 <div class="icon phone">
-                                    <img src="../src/assets/icons/Icon-phone.svg" alt="Icon Phone">
+                                    <img src="../src/assets/icons/Icon-phone.svg" alt="">
                                 </div>
-
                                 <div class="text">
                                     <span>Phone</span>
-                                    <span class="text-info">(123) 456 7890</span>
+                                    <a href="tel:+1234567890" class="text-info">(123) 456 7890</a>
                                 </div>
                             </div>
 
                             <div class="contact-item">
                                 <div class="icon email">
-                                    <img src="../src/assets/icons/Icon-email.svg" alt="Icon Email">
+                                    <img src="../src/assets/icons/Icon-email.svg" alt="">
                                 </div>
                                 <div class="text">
                                     <span>Email</span>
-                                    <span class="text-info">contact@thimpress.com</span>
+                                    <a href="mailto:contact@thimpress.com" class="text-info">contact@thimpress.com</a>
                                 </div>
                             </div>
                         </div>
@@ -90,32 +89,35 @@
 
                 <div class="direct-line-map">
                     <div class="position">
-                        <img src="../src/assets/icons/Icon-position.svg" alt="Icon Position">
+                        <img src="../src/assets/icons/Icon-position.svg" alt="">
                     </div>
                     <div class="map">
                         <!-- GOOGLE MAP -->
-                        <img src="../src/assets/images/contact/google-map.svg" alt="google map">
+                        <img src="../src/assets/images/contact/google-map.svg" alt="Google Map location">
                     </div>
                 </div>
             </section>
 
-            <!-- COMMENT FORM -->
-            <section class="comment-form">
-                <h3 class="leave-comment-title">Contact Us</h3>
+            <!-- CONTACT FORM -->
+            <section class="contact-form-section" aria-labelledby="contact-form-title">
+                <h3 class="leave-comment-title" id="contact-form-title">Contact Us</h3>
                 <p class="leave-comment-note">Your email address will not be published. Required fields are marked *</p>
 
                 <form class="comment-form" action="#" method="post">
                     <div class="form-row">
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Name*" required>
+                            <label for="contact-name" class="visually-hidden">Name</label>
+                            <input type="text" id="contact-name" name="name" placeholder="Name*" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Email*" required>
+                            <label for="contact-email" class="visually-hidden">Email</label>
+                            <input type="email" id="contact-email" name="email" placeholder="Email*" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <textarea name="comment" rows="6" placeholder="Comment"></textarea>
+                        <label for="contact-message" class="visually-hidden">Comment</label>
+                        <textarea id="contact-message" name="comment" rows="6" placeholder="Comment"></textarea>
                     </div>
 
                     <div class="form-checkbox">
@@ -137,10 +139,10 @@
 
             <!-- COLUMN 1 -->
             <div class="footer-column">
-                <div class="logo-footer">
+                <a href="/" class="logo-footer">
                     <img src="../src/assets/images/banners/Logo.svg" alt="EduPress">
                     <span>EduPress</span>
-                </div>
+                </a>
                 <p class="footer-text">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -151,9 +153,9 @@
             <div class="footer-column">
                 <h4 class="get-help-title">GET HELP</h4>
                 <ul class="footer-list">
-                    <li>Contact Us</li>
-                    <li>Latest Articles</li>
-                    <li>FAQ</li>
+                    <li><a href="/contact">Contact Us</a></li>
+                    <li><a href="/blog">Latest Articles</a></li>
+                    <li><a href="/faq">FAQ</a></li>
                 </ul>
             </div>
 
@@ -161,11 +163,11 @@
             <div class="footer-column">
                 <h4 class="programs-title">PROGRAMS</h4>
                 <ul class="footer-list">
-                    <li>Art & Design</li>
-                    <li>Business</li>
-                    <li>IT & Software</li>
-                    <li>Languages</li>
-                    <li>Programming</li>
+                    <li><a href="/programs/art-design">Art & Design</a></li>
+                    <li><a href="/programs/business">Business</a></li>
+                    <li><a href="/programs/it-software">IT & Software</a></li>
+                    <li><a href="/programs/languages">Languages</a></li>
+                    <li><a href="/programs/programming">Programming</a></li>
                 </ul>
             </div>
 
@@ -174,16 +176,16 @@
                 <h4 class="contact-us-title">CONTACT US</h4>
                 <div class="footer-contact">
                     <p class="address">Address: 2321 New Design Str, Lorem Ipsum10 Hudson Yards, USA</p>
-                    <p class="telephone">Tel: +(123) 2500-567-898</p>
-                    <p class="mail">Mail: supportlms@gmail.com</p>
+                    <p class="telephone">Tel: <a href="tel:+1232500567898">+(123) 2500-567-898</a></p>
+                    <p class="mail">Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
                 </div>
                 <div class="social">
                     <ul class="social-list">
-                        <li class="social-link"><img src="../src/assets/icons/Icon-facebook.svg" alt="Facebook"></li>
-                        <li class="social-link"><img src="../src/assets/icons/Icon-Pinterest.svg" alt="Pinterest"></li>
-                        <li class="social-link"><img src="../src/assets/icons/Icon-twitter.svg" alt="Twitter"></li>
-                        <li class="social-link"><img src="../src/assets/icons/Icon-instragram.svg" alt="Instagram"></li>
-                        <li class="social-link"><img src="../src/assets/icons/Icon-youtube.svg" alt="Youtube"></li>
+                        <li class="social-link"><a href="#"><img src="../src/assets/icons/Icon-facebook.svg" alt="Facebook"></a></li>
+                        <li class="social-link"><a href="#"><img src="../src/assets/icons/Icon-Pinterest.svg" alt="Pinterest"></a></li>
+                        <li class="social-link"><a href="#"><img src="../src/assets/icons/Icon-twitter.svg" alt="Twitter"></a></li>
+                        <li class="social-link"><a href="#"><img src="../src/assets/icons/Icon-instragram.svg" alt="Instagram"></a></li>
+                        <li class="social-link"><a href="#"><img src="../src/assets/icons/Icon-youtube.svg" alt="Youtube"></a></li>
                     </ul>
                 </div>
             </div>
@@ -197,4 +199,4 @@
 </body>
 </html>
 
-<!-- Ngày 21/8/2026 -->
+<!-- SUA NGAY 24/8/2026 -->
