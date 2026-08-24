@@ -441,4 +441,160 @@ button {
     color: var(--color-dark-gray);
 }
 
+/* ========== RESPONSIVE ========== */
+
+/* Tablet (≤ 992px) */
+@media (max-width: 992px) {
+    .direct-line {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .map {
+        width: 100%;
+        height: 400px;
+    }
+
+    .position {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+/* Mobile (≤ 768px) */
+@media (max-width: 768px) {
+    .inner-header {
+        padding: 0 16px;
+    }
+
+    .nav {
+        display: none; /* add hamburger later if needed */
+    }
+
+    .header-title {
+        font-size: 22px;
+    }
+
+    .content-brb {
+        padding: 0 16px;
+        font-size: 14px;
+        flex-wrap: wrap;
+    }
+
+    .container-main {
+        margin: 40px auto;
+        padding: 0 16px;
+        gap: 40px;
+    }
+
+    .direct-line-content h1 {
+        font-size: 28px;
+        margin-bottom: 16px;
+    }
+
+    .direct-line-content .desc {
+        font-size: 16px;
+    }
+
+    .contact-item {
+        gap: 16px;
+    }
+
+    .contact-item .icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .contact-item .icon img {
+        width: 26px;
+        height: 26px;
+    }
+
+    .contact-item span {
+        font-size: 16px;
+    }
+
+    .map {
+        height: 300px;
+        border-radius: 16px;
+    }
+
+    .leave-comment-title {
+        font-size: 26px;
+    }
+
+    .leave-comment-note {
+        font-size: 16px;
+        margin-bottom: 24px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 16px;
+        padding: 12px 14px;
+    }
+
+    .form-checkbox label {
+        font-size: 15px;
+    }
+
+    .btn-post-comment {
+        width: 100%;
+        text-align: center;
+        padding: 12px 24px;
+    }
+
+    .footer {
+        padding: 50px 0 24px;
+        margin-top: 50px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 16px;
+    }
+
+    .footer-bottom {
+        margin-top: 40px;
+        padding-top: 20px;
+        font-size: 14px;
+    }
+}
+
+/* Small mobile (≤ 480px / 375px) */
+@media (max-width: 480px) {
+    .direct-line-content h1 {
+        font-size: 24px;
+    }
+
+    .map {
+        height: 250px;
+    }
+
+    .leave-comment-title {
+        font-size: 22px;
+    }
+
+    .contact-item {
+        gap: 12px;
+    }
+
+    .contact-item .icon {
+        width: 44px;
+        height: 44px;
+    }
+}
+
 /* SUA NGAY 24/8/2026 */
