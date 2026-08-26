@@ -363,7 +363,6 @@ button {
 .old-price {
     font-size: 18px;
     color: var(--color-grey);
-    text-decoration: line-through;
 }
 
 .new-price {
@@ -761,4 +760,4 @@ button {
     }
 }
 
-/* SUA NGAY 24/8/2026 */
+/* SUA NGAY 26/8/2026 */

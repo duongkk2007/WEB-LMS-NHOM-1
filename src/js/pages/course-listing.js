@@ -13,14 +13,13 @@
   const viewTableBtn = document.querySelector(".icon-view-table");
   const viewListBtn = document.querySelector(".icon-view-list");
   const courseList = document.querySelector(".course-list");
-  const courseCards = Array.from(document.querySelectorAll(".course-card"));
   const pagination = document.querySelector(".pagination");
   const sidebar = document.querySelector(".sidebar");
 
   // ========== STATE ==========
   const state = {
     searchQuery: "",
-    viewMode: localStorage.getItem("edupress-view-mode") || "list", // "list" | "grid"
+    viewMode: localStorage.getItem("edupress-view-mode") || "list",
     currentPage: 1,
     itemsPerPage: 3,
     filters: {
@@ -30,20 +29,90 @@
       review: [],
       level: [],
     },
+    allCourses: [],      // dữ liệu từ JSON
+    courseCards: [],     // DOM cards sau khi render
   };
 
-  // ========== HELPERS ==========
+  // ========== LOAD JSON ==========
+  async function loadCourses() {
+    try {
+      // Đường dẫn tính từ file HTML (thường nằm trong /pages/)
+      const res = await fetch("../data/courses.json");
+      if (!res.ok) throw new Error("Không tải được courses.json");
+      const data = await res.json();
+      return data.courses || data; // hỗ trợ cả 2 dạng
+    } catch (err) {
+      console.error(err);
+      return [];
+    }
+  }
 
-  /**
-   * Lấy text sạch từ element (bỏ khoảng trắng thừa)
-   */
+  // ========== TẠO CARD TỪ DATA ==========
+  function createCourseCard(course, template) {
+    const card = template.cloneNode(true);
+
+    // Image
+    const img = card.querySelector(".course-image img");
+    if (img) {
+      img.src = course.image;
+      img.alt = course.title;
+    }
+
+    // Badge
+    const badge = card.querySelector(".badge span");
+    if (badge) badge.textContent = course.category;
+
+    // Author
+    const author = card.querySelector(".author");
+    if (author) {
+      author.innerHTML = `<span class="fading">by</span> ${course.author}`;
+    }
+
+      // Title
+    const titleLink = card.querySelector(".course-title a");
+    if (titleLink) {
+      titleLink.textContent = course.title;
+      titleLink.href = `./course-single.html?id=${course.id}`;
+    }
+
+    // Stats
+    const stats = card.querySelectorAll(".course-stats span");
+    if (stats.length >= 4) {
+      stats[0].innerHTML = `<img src="../src/assets/icons/meta1.svg" alt=""> ${course.duration}`;
+      stats[1].innerHTML = `<img src="../src/assets/icons/meta2.svg" alt=""> ${course.students} Students`;
+      stats[2].innerHTML = `<img src="../src/assets/icons/meta3.svg" alt=""> ${course.level}`;
+      stats[3].innerHTML = `<img src="../src/assets/icons/meta4.svg" alt=""> ${course.lessons} Lessons`;
+    }
+
+    // Price
+    const oldPrice = card.querySelector(".old-price");
+    const newPrice = card.querySelector(".new-price");
+    if (oldPrice) {
+      oldPrice.textContent = `$${Number(course.oldPrice).toFixed(1)}`;
+    }
+    if (newPrice) newPrice.textContent = course.currentPrice;
+
+    // View More
+    const viewMore = card.querySelector(".view-more");
+    if (viewMore) {
+      viewMore.href = `./course-single.html?id=${course.id}`;
+    }
+    
+    // Lưu data vào card để filter dễ hơn (optional)
+    card.dataset.id = course.id;
+    card.dataset.category = (course.category || "").toLowerCase();
+    card.dataset.author = (course.author || "").toLowerCase();
+    card.dataset.level = (course.level || "").toLowerCase();
+    card.dataset.free = course.isFree ? "true" : "false";
+
+    return card;
+  }
+
+  // ========== HELPERS (giữ logic cũ, chỉnh nhẹ) ==========
   function getText(el) {
     return el ? el.textContent.trim().toLowerCase() : "";
   }
 
-  /**
-   * Kiểm tra card có match search query không
-   */
   function matchSearch(card, query) {
     if (!query) return true;
     const title = getText(card.querySelector(".course-title"));
@@ -51,39 +120,27 @@
     return title.includes(query) || author.includes(query);
   }
 
-  /**
-   * Kiểm tra card có match các filter đang active không
-   * (logic OR trong cùng nhóm, AND giữa các nhóm)
-   */
   function matchFilters(card) {
-    const { category, instructor, price, review, level } = state.filters;
+    const { category, instructor, price, level } = state.filters;
 
-    // Category → so khớp badge
     if (category.length > 0) {
       const badge = getText(card.querySelector(".badge span"));
-      const matched = category.some((c) => badge.includes(c));
-      if (!matched) return false;
+      if (!category.some((c) => badge.includes(c))) return false;
     }
 
-    // Instructor → so khớp tên author
     if (instructor.length > 0) {
       const author = getText(card.querySelector(".author"));
-      const matched = instructor.some((i) => author.includes(i));
-      if (!matched) return false;
+      if (!instructor.some((i) => author.includes(i))) return false;
     }
 
-    // Price → Free / Paid / All
     if (price.length > 0 && !price.includes("all")) {
-      const priceText = getText(card.querySelector(".new-price"));
-      const isFree = priceText.includes("free");
+      const isFree = card.dataset.free === "true";
       const wantFree = price.includes("free");
       const wantPaid = price.includes("paid");
-
       if (wantFree && !isFree) return false;
       if (wantPaid && isFree) return false;
     }
 
-    // Level → so khớp trong course-stats
     if (level.length > 0 && !level.includes("all-levels")) {
       const statsText = getText(card.querySelector(".course-stats"));
       const matched = level.some((l) => {
@@ -95,74 +152,52 @@
       if (!matched) return false;
     }
 
-    // Review: HTML hiện tại không có số sao trên card → bỏ qua hoặc luôn pass
-    // (khi có data review trên card có thể mở rộng sau)
-
     return true;
   }
 
-  /**
-   * Lấy danh sách card đã lọc (search + filter)
-   */
   function getFilteredCards() {
-    return courseCards.filter((card) => {
+    return state.courseCards.filter((card) => {
       return matchSearch(card, state.searchQuery) && matchFilters(card);
     });
   }
 
   // ========== RENDER ==========
-
-  /**
-   * Ẩn/hiện card theo trang hiện tại + filter/search
-   */
   function renderCourses() {
     const filtered = getFilteredCards();
     const totalPages = Math.max(1, Math.ceil(filtered.length / state.itemsPerPage));
 
-    // Đảm bảo currentPage không vượt quá
-    if (state.currentPage > totalPages) {
-      state.currentPage = totalPages;
-    }
+    if (state.currentPage > totalPages) state.currentPage = totalPages;
 
     const start = (state.currentPage - 1) * state.itemsPerPage;
     const end = start + state.itemsPerPage;
     const pageCards = filtered.slice(start, end);
 
-    // Ẩn tất cả trước
-    courseCards.forEach((card) => {
-      card.style.display = "none";
-    });
+    // Ẩn tất cả
+    state.courseCards.forEach((card) => (card.style.display = "none"));
 
-    // Hiện card của trang hiện tại
-    pageCards.forEach((card) => {
-      card.style.display = ""; // trả về giá trị CSS mặc định
-    });
+    // Hiện card trang hiện tại
+    pageCards.forEach((card) => (card.style.display = ""));
 
     renderPagination(totalPages, filtered.length);
   }
 
-  /**
-   * Cập nhật UI pagination
-   */
   function renderPagination(totalPages, totalItems) {
     if (!pagination) return;
 
-    // Xóa các page-btn cũ (giữ lại arrow)
     const oldPageBtns = pagination.querySelectorAll(".page-btn, .page-btn-active");
     oldPageBtns.forEach((btn) => btn.remove());
 
     const nextArrow = pagination.querySelector('a[aria-label="Next page"]');
-    const prevArrow = pagination.querySelector(".arrow-active") || pagination.querySelector('a[aria-label="Previous page"]');
+    const prevArrow =
+      pagination.querySelector(".arrow-active") ||
+      pagination.querySelector('a[aria-label="Previous page"]');
 
-    // Tạo lại các nút số trang
     for (let i = 1; i <= totalPages; i++) {
       const a = document.createElement("a");
       a.href = "#";
       a.textContent = i;
       a.className = i === state.currentPage ? "page-btn-active" : "page-btn";
-      if (i === state.currentPage) {
-        a.setAttribute("aria-current", "page");
-      }
+      if (i === state.currentPage) a.setAttribute("aria-current", "page");
 
       a.addEventListener("click", (e) => {
         e.preventDefault();
@@ -170,15 +205,10 @@
         renderCourses();
       });
 
-      // Chèn trước nút Next
-      if (nextArrow) {
-        pagination.insertBefore(a, nextArrow);
-      } else {
-        pagination.appendChild(a);
-      }
+      if (nextArrow) pagination.insertBefore(a, nextArrow);
+      else pagination.appendChild(a);
     }
 
-    // Prev / Next
     if (prevArrow) {
       prevArrow.onclick = (e) => {
         e.preventDefault();
@@ -187,7 +217,6 @@
           renderCourses();
         }
       };
-      // Cập nhật special-number nếu có
       const special = prevArrow.querySelector(".special-number");
       if (special) special.textContent = state.currentPage;
     }
@@ -202,13 +231,10 @@
       };
     }
 
-    // Ẩn pagination nếu chỉ có 1 trang hoặc không có kết quả
-    pagination.style.display = totalItems === 0 || totalPages <= 1 ? "none" : "flex";
+    pagination.style.display =
+      totalItems === 0 || totalPages <= 1 ? "none" : "flex";
   }
 
-  /**
-   * Áp dụng view mode (list / grid)
-   */
   function applyViewMode() {
     if (!courseList) return;
 
@@ -228,10 +254,6 @@
   }
 
   // ========== EVENT HANDLERS ==========
-
-  /**
-   * Search
-   */
   function handleSearch(e) {
     if (e) e.preventDefault();
     state.searchQuery = (searchInput?.value || "").trim().toLowerCase();
@@ -239,9 +261,6 @@
     renderCourses();
   }
 
-  /**
-   * Debounce search khi gõ
-   */
   let searchTimeout;
   function handleSearchInput() {
     clearTimeout(searchTimeout);
@@ -252,17 +271,11 @@
     }, 300);
   }
 
-  /**
-   * Toggle view
-   */
   function handleViewToggle(mode) {
     state.viewMode = mode;
     applyViewMode();
   }
 
-  /**
-   * Đọc tất cả checkbox filter đang checked
-   */
   function collectFilters() {
     state.filters = {
       category: [],
@@ -277,72 +290,65 @@
     sidebar.querySelectorAll('input[type="checkbox"]:checked').forEach((cb) => {
       const name = cb.name;
       const value = cb.value.toLowerCase();
-      if (state.filters[name]) {
-        state.filters[name].push(value);
-      }
+      if (state.filters[name]) state.filters[name].push(value);
     });
   }
 
-  /**
-   * Khi thay đổi bất kỳ filter nào
-   */
   function handleFilterChange() {
     collectFilters();
     state.currentPage = 1;
     renderCourses();
   }
 
-  /**
-   * Focus search chính khi bấm icon header
-   */
   function handleHeaderSearch() {
     searchInput?.focus();
   }
 
   // ========== INIT ==========
+  async function init() {
+    // 1. Load data từ JSON
+    state.allCourses = await loadCourses();
 
-  function init() {
-    // Search form
-    if (searchForm) {
-      searchForm.addEventListener("submit", handleSearch);
-    }
-    if (searchInput) {
-      searchInput.addEventListener("input", handleSearchInput);
-    }
-
-    // Header search icon
-    if (headerSearchBtn) {
-      headerSearchBtn.addEventListener("click", handleHeaderSearch);
+    // 2. Lấy template card
+    const template = courseList?.querySelector(".course-card");
+    if (!template) {
+      console.error("Không tìm thấy .course-card template");
+      return;
     }
 
-    // View mode buttons
-    if (viewTableBtn) {
-      viewTableBtn.addEventListener("click", () => handleViewToggle("grid"));
-    }
-    if (viewListBtn) {
-      viewListBtn.addEventListener("click", () => handleViewToggle("list"));
-    }
+    // 3. Xóa card mẫu
+    template.remove();
 
-    // Sidebar filters
+    // 4. Tạo card từ JSON và chèn vào list (trước pagination)
+    state.courseCards = state.allCourses.map((course) => {
+      const card = createCourseCard(course, template);
+      courseList.insertBefore(card, pagination);
+      return card;
+    });
+
+    // 5. Gắn sự kiện
+    if (searchForm) searchForm.addEventListener("submit", handleSearch);
+    if (searchInput) searchInput.addEventListener("input", handleSearchInput);
+    if (headerSearchBtn) headerSearchBtn.addEventListener("click", handleHeaderSearch);
+    if (viewTableBtn) viewTableBtn.addEventListener("click", () => handleViewToggle("grid"));
+    if (viewListBtn) viewListBtn.addEventListener("click", () => handleViewToggle("list"));
+
     if (sidebar) {
       sidebar.addEventListener("change", (e) => {
-        if (e.target.matches('input[type="checkbox"]')) {
-          handleFilterChange();
-        }
+        if (e.target.matches('input[type="checkbox"]')) handleFilterChange();
       });
     }
 
-    // Áp dụng view mode đã lưu
+    // 6. Áp dụng view + render lần đầu
     applyViewMode();
-
-    // Render lần đầu
     renderCourses();
   }
 
-  // Chạy khi DOM sẵn sàng
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {
     init();
   }
 })();
+
+/* SUA NGAY 26/8/2026 */
