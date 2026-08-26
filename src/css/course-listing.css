@@ -483,7 +483,6 @@ button {
     height: 12px;
     accent-color: var(--color-dark-gray);
     position: relative;
-    top: 1px;
 }
 
 .category-list span,
