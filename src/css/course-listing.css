@@ -1,6 +1,5 @@
 /* ========== CSS Variables ========== */
 :root {
-    --white: #FFFFFF;
     --color-primary: #FF782D;
     --color-text: #000000;
     --color-white-grey: #F5F5F5;
@@ -293,14 +292,14 @@ button {
     top: 20px;
     left: 24px;
     background: #000000;
-    color: var(--white);
+    color: var(--color-white);
     border-radius: 8px;
 }
 
 .badge span {
     font-size: 16px;
     position: absolute;
-    padding: 8px 12px;
+    padding: 8px 8px;
 }
 
 .course-content {
