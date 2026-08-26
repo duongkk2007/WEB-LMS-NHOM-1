@@ -1,0 +1,91 @@
+{
+  "name": "edupress-courses",
+  "version": "1.0.0",
+  "description": "Danh sách khóa học trang Course Listing - EduPress",
+  "courses": [
+    {
+      "id": 1,
+      "title": "Create An LMS Website With LearnPress",
+      "author": "Determined-Poitras",
+      "category": "Photography",
+      "image": "../src/assets/images/courses/courses-listing/image-1.png",
+      "duration": "2 Weeks",
+      "students": 156,
+      "level": "All levels",
+      "lessons": 20,
+      "oldPrice": 29.0,
+      "currentPrice": "Free",
+      "isFree": true
+    },
+    {
+      "id": 2,
+      "title": "Create An LMS Website With LearnPress",
+      "author": "Determined-Poitras",
+      "category": "Photography",
+      "image": "../src/assets/images/courses/courses-listing/image-2.png",
+      "duration": "2 Weeks",
+      "students": 156,
+      "level": "All levels",
+      "lessons": 20,
+      "oldPrice": 29.0,
+      "currentPrice": "Free",
+      "isFree": true
+    },
+    {
+      "id": 3,
+      "title": "Create An LMS Website With LearnPress",
+      "author": "Determined-Poitras",
+      "category": "Photography",
+      "image": "../src/assets/images/courses/courses-listing/image-3.png",
+      "duration": "2 Weeks",
+      "students": 156,
+      "level": "All levels",
+      "lessons": 20,
+      "oldPrice": 29.0,
+      "currentPrice": "Free",
+      "isFree": true
+    },
+    {
+      "id": 4,
+      "title": "Create An LMS Website With LearnPress",
+      "author": "Determined-Poitras",
+      "category": "Photography",
+      "image": "../src/assets/images/courses/courses-listing/image-4.png",
+      "duration": "2 Weeks",
+      "students": 156,
+      "level": "All levels",
+      "lessons": 20,
+      "oldPrice": 29.0,
+      "currentPrice": "Free",
+      "isFree": true
+    },
+    {
+      "id": 5,
+      "title": "Create An LMS Website With LearnPress",
+      "author": "Determined-Poitras",
+      "category": "Photography",
+      "image": "../src/assets/images/courses/courses-listing/image-5.png",
+      "duration": "2 Weeks",
+      "students": 156,
+      "level": "All levels",
+      "lessons": 20,
+      "oldPrice": 29.0,
+      "currentPrice": "Free",
+      "isFree": true
+    },
+    {
+      "id": 6,
+      "title": "Create An LMS Website With LearnPress",
+      "author": "Determined-Poitras",
+      "category": "Photography",
+      "image": "../src/assets/images/courses/courses-listing/image-6.png",
+      "duration": "2 Weeks",
+      "students": 156,
+      "level": "All levels",
+      "lessons": 20,
+      "oldPrice": 29.0,
+      "currentPrice": "Free",
+      "isFree": true
+    }
+  ]
+}
