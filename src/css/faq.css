@@ -1,46 +1,7 @@
 /* =========================================================
-   EduPress — FAQ Page
-   Design tokens measured from Figma export (screenshots @1920px)
+   EduPress — FAQ Page (page-specific only)
+   Header / Footer / Breadcrumb: from input.css
    ========================================================= */
-
-:root {
-  --color-orange: #FE7930;
-  --color-orange-dark: #E85D1F;
-  --color-black: #000000;
-  --color-text: #1A1A1A;
-  --color-text-muted: #6F6F6F;
-  --color-text-light: #A0A0A0;
-  --color-border: #EAEAEA;
-  --color-bg-grey: #F5F5F5;
-  --color-card-border: #E1E5F1;
-  --color-blue: #2F6FED;
-  --color-white: #FFFFFF;
-
-  --font-main: 'Jost', 'Inter', -apple-system, sans-serif;
-
-  --container-w: 1290px;
-}
-
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-
-body {
-  font-family: var(--font-main);
-  color: var(--color-text);
-  background: var(--color-white);
-  -webkit-font-smoothing: antialiased;
-}
-
-img { max-width: 100%; display: block; }
-a { text-decoration: none; color: inherit; }
-ul { list-style: none; margin: 0; padding: 0; }
-button { font-family: inherit; cursor: pointer; }
-
-.container {
-  max-width: var(--container-w);
-  margin: 0 auto;
-  padding: 0 15px;
-}
 
 /* ========== FAQ PAGE SECTION ========== */
 .faq-page-section {

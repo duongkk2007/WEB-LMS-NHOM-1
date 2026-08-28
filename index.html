@@ -9,39 +9,47 @@
     <!-- FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100.900;1,100.900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <!-- CSS -->
     <link rel="stylesheet" href="./src/css/input.css">
     <link rel="stylesheet" href="./src/css/home-page.css">
 </head>
 <body>
 
-    <!-- HEADER -->
+        <!-- HEADER -->
     <header class="header">
         <div class="inner-header">
-            <!-- LOGO -->
-            <a href="/" class="logo-header">
+            <a href="./index.html" class="logo-header">
                 <div class="logo-icon-header">
                     <img src="./src/assets/images/banners/Logo.svg" alt="EduPress Logo">
                 </div>
                 <span class="header-title">EduPress</span>
             </a>
 
-            <!-- NAV -->
             <nav class="nav" aria-label="Main navigation">
-                <a href="#" class="home-nav active">Home</a>
+                <a href="./index.html" class="home-nav active">Home</a>
                 <a href="./pages/course-listing.html" class="course-nav">Courses</a>
                 <a href="./pages/blog-listing.html" class="blog-nav">Blog</a>
-                <a href="./pages/contact.html" class="page-nav">Page</a>
+                <div class="nav-item">
+                    <a href="./pages/contact.html" class="page-nav">Page</a>
+                    <div class="nav-dropdown">
+                        <a href="./pages/contact.html">Contact</a>
+                        <a href="./pages/auth.html">Auth</a>
+                        <a href="./pages/error.html">Error</a>
+                        <a href="./pages/faq.html">FAQ</a>
+                    </div>
+                </div>
                 <a href="./pages/auth.html" class="learnpress-nav">LearnPress Add-On</a>
                 <a href="./pages/auth.html" class="theme-nav">Premium Theme</a>
             </nav>
 
-            <!-- RIGHT -->
             <div class="header-right">
                 <a href="./pages/auth.html" class="btn-login">Login / Register</a>
                 <button type="button" class="search-icon-header" aria-label="Search">
-                    <img src="./src/assets/icons/Icon-search-header.svg" alt="">
+                    <img src="./src/assets/icons/Icon-search-header.svg" alt="Icon-Search">
+                </button>
+                            <button type="button" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
                 </button>
             </div>
         </div>
@@ -576,47 +584,71 @@
         </section>
     </main>
     <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-about">
-            <a href="#" class="logo"><img src="./src/assets/images/banners/Logo.svg" alt="EduPress">EduPress</a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-          <div class="footer-col">
-            <h5>Get Help</h5>
-            <ul>
-              <li><a href="./pages/contact.html">Contact Us</a></li>
-              <li><a href="./pages/blog-listing.html">Latest Articles</a></li>
-              <li><a href="./pages/faq.html">FAQ</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>Programs</h5>
-            <ul>
-              <li><a href="/programs/art-design">Art &amp; Design</a></li>
-              <li><a href="/programs/business">Business</a></li>
-              <li><a href="/programs/it-software">IT &amp; Software</a></li>
-              <li><a href="/programs/languages">Languages</a></li>
-              <li><a href="/programs/programming">Programming</a></li>
-            </ul>
-          </div>
-          <div class="footer-col footer-contact">
-            <h5>Contact Us</h5>
-            <p>Address: 2321 New Design Str, Lorem Ipsum 10 Hudson Yards, USA</p>
-            <p>Tel: <a href="tel:+1232500567898">+(123) 2500-567-898</a></p>
-            <p>Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
-            <div class="footer-socials">
-              <a href="#"><img src="./src/assets/icons/Icon-facebook.svg" alt="Facebook"></a>
-              <a href="#"><img src="./src/assets/icons/Icon-Pinterest.svg" alt="Pinterest"></a>
-              <a href="#"><img src="./src/assets/icons/Icon-twitter.svg" alt="Twitter"></a>
-              <a href="#"><img src="./src/assets/icons/Icon-instragram.svg" alt="Instagram"></a>
-              <a href="#"><img src="./src/assets/icons/Icon-youtube.svg" alt="Youtube"></a>
+        <footer class="footer">
+        <div class="footer-container">
+            <!-- Cột 1: About -->
+            <div class="footer-about">
+                <a href="./index.html" class="logo-footer">
+                    <img src="./src/assets/images/banners/Logo.svg" alt="EduPress">
+                    EduPress
+                </a>
+                <p class="footer-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
             </div>
-          </div>
+
+            <!-- Cột 2: Get Help -->
+            <div class="footer-col">
+                <h5 class="get-help-title">Get Help</h5>
+                <ul class="footer-list">
+                    <li><a href="./pages/contact.html">Contact Us</a></li>
+                    <li><a href="./pages/blog-listing.html">Latest Articles</a></li>
+                    <li><a href="./pages/faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 3: Programs -->
+            <div class="footer-col">
+                <h5 class="programs-title">Programs</h5>
+                <ul class="footer-list">
+                    <li><a href="#">Art &amp; Design</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">IT &amp; Software</a></li>
+                    <li><a href="#">Languages</a></li>
+                    <li><a href="#">Programming</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 4: Contact Us -->
+            <div class="footer-col footer-contact">
+                <h5 class="contact-us-title">Contact Us</h5>
+                <p>Address: 2321 New Design Str, Lorem Ipsum 10 Hudson Yards, USA</p>
+                <p>Tel: +(123) 2500-567-898</p>
+                <p>Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
+
+                <div class="social-list">
+                    <a href="#" class="social-link">
+                        <img src="./src/assets/icons/Icon-facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="./src/assets/icons/Icon-Pinterest.svg" alt="Pinterest">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="./src/assets/icons/Icon-twitter.svg" alt="Twitter">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="./src/assets/icons/Icon-instragram.svg" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="./src/assets/icons/Icon-youtube.svg" alt="Youtube">
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="footer-bottom">Copyright © 2024 LearnPress LMS | Powered by ThimPress</div>
-      </div>
+
+        <div class="footer-bottom">
+            Copyright © 2024 LearnPress LMS | Powered by ThimPress
+        </div>
     </footer>
 
     <button class="back-to-top" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
@@ -626,5 +658,6 @@
     <!-- JAVASCRIPT  -->
     <script src="./src/js/pages/home.js"></script>
 
+    <script src="./src/js/components/header.js"></script>
 </body>
 </html>
