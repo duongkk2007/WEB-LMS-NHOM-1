@@ -54,92 +54,6 @@ button {
     padding: 0;
 }
 
-/* HEADER */
-.header {
-    height: 72px;
-    background-color: var(--color-white);
-    border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-/* Inner Header */
-.inner-header {
-    max-width: var(--container-width);
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* Logo */
-.logo-header {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
-.logo-icon-header img {
-    width: 39.3px;
-    height: 30px;
-}
-
-.header-title {
-    font-size: 28px;
-    font-weight: bold;
-}
-
-/* Navigation */
-.nav {
-    display: flex;
-    align-items: center;
-    gap: 0;
-}
-
-.home-nav,
-.course-nav,
-.blog-nav,
-.page-nav,
-.learnpress-nav,
-.theme-nav {
-    height: 72px;
-    display: flex;
-    align-items: center;
-    padding: 0 20px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    line-height: 120%;
-}
-
-.blog-nav {
-    background-color: var(--color-white-grey);
-    color: var(--color-primary);
-}
-
-/* Header Right */
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.btn-login {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 150%;
-    cursor: pointer;
-}
-
-.search-icon-header img {
-    width: 48px;
-    height: 48px;
-    cursor: pointer;
-}
-
 /* BREADCRUMB */
 .breadcrumb {
     height: 44px;
@@ -678,91 +592,6 @@ button {
     border-color: var(--color-white-grey);
 }
 
-/* FOOTER */
-.footer {
-    background: var(--color-white-grey);
-    border-top: 1px solid var(--color-border);
-    padding: 90px 0 32px 0; 
-    margin-top: 90px;    
-}
-
-.footer-container {
-    max-width: var(--container-width);
-    margin: 0 auto;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
-    gap: 30px;
-}
-
-.logo-footer {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.logo-footer img {
-    width: 36px;
-    height: 28px;
-}
-
-.footer-text {
-    font-size: 15px;
-    color: var(--color-dark-gray);
-    max-width: 320px;
-    line-height: 1.6;
-}
-
-.get-help-title,
-.programs-title,
-.contact-us-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
-
-.footer-list li {
-    margin-bottom: 10px;
-    font-size: 15px;
-    color: var(--color-dark-gray);
-}
-
-.footer-list li a:hover {
-    color: var(--color-primary);
-}
-
-.footer-contact p {
-    font-size: 14px;
-    color: var(--color-dark-gray);
-    margin-bottom: 8px;
-}
-
-.social-list {
-    display: flex;
-    gap: 14px;
-    margin-top: 16px;
-}
-
-.social-link img {
-    width: 18px;
-    height: 18px;
-}
-
-.social-link:hover img {
-    opacity: 0.7;
-}
-
-.footer-bottom {
-    margin-top: 90px;
-    padding: 32px 0 0 0;                 
-    border-top: 1px solid var(--color-border);
-    text-align: center;
-    font-size: 16px;
-    color: var(--color-dark-gray);
-}
 
 /* ========== RESPONSIVE ========== */
 
@@ -790,11 +619,7 @@ button {
         text-align: left;
     }
 
-    .footer-container {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
     }
-}
 
 /* Mobile (≤ 768px) */
 @media (max-width: 768px) {
@@ -934,23 +759,6 @@ button {
     }
 
     /* Footer */
-    .footer {
-        padding: 50px 0 24px;
-        margin-top: 50px;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 32px;
-        padding: 0 16px;
-    }
-
-    .footer-bottom {
-        margin-top: 40px;
-        padding-top: 20px;
-        font-size: 14px;
-    }
-
     .pagination a {
         width: 40px;
         height: 40px;

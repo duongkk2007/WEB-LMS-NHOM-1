@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100.900;1,100.900&display=swap" rel="stylesheet">
     <!-- CSS -->
+    <link rel="stylesheet" href="./src/css/input.css">
     <link rel="stylesheet" href="./src/css/home-page.css">
 </head>
 <body>
@@ -27,16 +28,16 @@
             <!-- NAV -->
             <nav class="nav" aria-label="Main navigation">
                 <a href="#" class="home-nav active">Home</a>
-                <a href="./course-listing.html" class="course-nav">Courses</a>
-                <a href="./blog-listing.html" class="blog-nav">Blog</a>
-                <a href="#" class="page-nav">Page</a>
-                <a href="#" class="learnpress-nav">LearnPress Add-On</a>
-                <a href="#" class="theme-nav">Premium Theme</a>
+                <a href="./pages/course-listing.html" class="course-nav">Courses</a>
+                <a href="./pages/blog-listing.html" class="blog-nav">Blog</a>
+                <a href="./pages/contact.html" class="page-nav">Page</a>
+                <a href="./pages/auth.html" class="learnpress-nav">LearnPress Add-On</a>
+                <a href="./pages/auth.html" class="theme-nav">Premium Theme</a>
             </nav>
 
             <!-- RIGHT -->
             <div class="header-right">
-                <a href="/login" class="btn-login">Login / Register</a>
+                <a href="./pages/auth.html" class="btn-login">Login / Register</a>
                 <button type="button" class="search-icon-header" aria-label="Search">
                     <img src="./src/assets/icons/Icon-search-header.svg" alt="">
                 </button>
@@ -573,66 +574,47 @@
         </section>
     </main>
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-container">
-
-            <!-- COLUMN 1 -->
-            <div class="footer-column">
-                <a href="/" class="logo-footer">
-                    <img src="./src/assets/images/banners/Logo.svg" alt="EduPress">
-                    <span>EduPress</span>
-                </a>
-                <p class="footer-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <a href="/" class="logo"><img src="./src/assets/images/banners/Logo.svg" alt="EduPress">EduPress</a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </div>
+          <div class="footer-col">
+            <h5>Get Help</h5>
+            <ul>
+              <li><a href="./contact.html">Contact Us</a></li>
+              <li><a href="/blog">Latest Articles</a></li>
+              <li><a href="./faq.html">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Programs</h5>
+            <ul>
+              <li><a href="/programs/art-design">Art &amp; Design</a></li>
+              <li><a href="/programs/business">Business</a></li>
+              <li><a href="/programs/it-software">IT &amp; Software</a></li>
+              <li><a href="/programs/languages">Languages</a></li>
+              <li><a href="/programs/programming">Programming</a></li>
+            </ul>
+          </div>
+          <div class="footer-col footer-contact">
+            <h5>Contact Us</h5>
+            <p>Address: 2321 New Design Str, Lorem Ipsum 10 Hudson Yards, USA</p>
+            <p>Tel: <a href="tel:+1232500567898">+(123) 2500-567-898</a></p>
+            <p>Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
+            <div class="footer-socials">
+              <a href="#"><img src="./src/assets/icons/Icon-facebook.svg" alt="Facebook"></a>
+              <a href="#"><img src="./src/assets/icons/Icon-Pinterest.svg" alt="Pinterest"></a>
+              <a href="#"><img src="./src/assets/icons/Icon-twitter.svg" alt="Twitter"></a>
+              <a href="#"><img src="./src/assets/icons/Icon-instragram.svg" alt="Instagram"></a>
+              <a href="#"><img src="./src/assets/icons/Icon-youtube.svg" alt="Youtube"></a>
             </div>
-
-            <!-- COLUMN 2 -->
-            <div class="footer-column">
-                <h4 class="get-help-title">GET HELP</h4>
-                <ul class="footer-list">
-                    <li><a href="./contact.html">Contact Us</a></li>
-                    <li><a href="/blog">Latest Articles</a></li>
-                    <li><a href="./faq.html">FAQ</a></li>
-                </ul>
-            </div>
-
-            <!-- COLUMN 3 -->
-            <div class="footer-column">
-                <h4 class="programs-title">PROGRAMS</h4>
-                <ul class="footer-list">
-                    <li><a href="/programs/art-design">Art & Design</a></li>
-                    <li><a href="/programs/business">Business</a></li>
-                    <li><a href="/programs/it-software">IT & Software</a></li>
-                    <li><a href="/programs/languages">Languages</a></li>
-                    <li><a href="/programs/programming">Programming</a></li>
-                </ul>
-            </div>
-
-            <!-- COLUMN 4 -->
-            <div class="footer-column">
-                <h4 class="contact-us-title">CONTACT US</h4>
-                <div class="footer-contact">
-                    <p class="address">Address: 2321 New Design Str, Lorem Ipsum 10 Hudson Yards, USA</p>
-                    <p class="telephone">Tel: <a href="tel:+1232500567898">+(123) 2500-567-898</a></p>
-                    <p class="mail">Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
-                </div>
-                <div class="social">
-                    <ul class="social-list">
-                        <li class="social-link"><a href="#"><img src="./src/assets/icons/Icon-facebook.svg" alt="Facebook"></a></li>
-                        <li class="social-link"><a href="#"><img src="./src/assets/icons/Icon-Pinterest.svg" alt="Pinterest"></a></li>
-                        <li class="social-link"><a href="#"><img src="./src/assets/icons/Icon-twitter.svg" alt="Twitter"></a></li>
-                        <li class="social-link"><a href="#"><img src="./src/assets/icons/Icon-instragram.svg" alt="Instagram"></a></li>
-                        <li class="social-link"><a href="#"><img src="./src/assets/icons/Icon-youtube.svg" alt="Youtube"></a></li>
-                    </ul>
-                </div>
-            </div>
+          </div>
         </div>
-
-        <div class="footer-bottom">
-            Copyright © 2024 LearnPress LMS | Powered by ThimPress
-        </div>
+        <div class="footer-bottom">Copyright © 2024 LearnPress LMS | Powered by ThimPress</div>
+      </div>
     </footer>
 
     <!-- JAVASCRIPT  -->
