@@ -112,14 +112,8 @@ button { font-family: inherit; cursor: pointer; }
 }
 .search-icon-header {
   width: 40px; height: 40px;
-  border-radius: 50%;
-  border: 1.5px solid var(--color-orange);
-  background: none;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-  padding: 0;
 }
-.search-icon-header img { width: 16px; height: 16px; display: block; }
+.search-icon-header img { display: block; }
 .menu-toggle {
   display: none;
   width: 40px; height: 40px;
@@ -129,7 +123,7 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center; justify-content: center;
   flex-shrink: 0;
 }
- 
+
 /* ---------------- Breadcrumb ---------------- */
 .breadcrumb-bar {
   background: var(--color-bg-grey);
