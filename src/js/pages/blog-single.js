@@ -3,7 +3,7 @@
  * Fixed to match blog-single.html (IDs: comment-name, comment-email, comment-text)
  */
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', async function () {
 
     // Lấy id từ URL
     const urlParams = new URLSearchParams(window.location.search);
