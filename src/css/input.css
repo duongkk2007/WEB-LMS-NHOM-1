@@ -4,51 +4,28 @@
    ========================================================= */
 
 :root {
-  /* ===== Brand (EduPress Figma) ===== */
   --color-primary: #FF782D;
-  --color-primary-hover: #E56A20;
-  --color-secondary: #FFAB2D;
-
-  /* ===== Surfaces ===== */
-  --color-white: #FFFFFF;
-  --color-bg: #FFFFFF;
-  --color-bg-muted: #F5F5F5;
-  --color-bg-grey: #F5F5F5;
-  --color-white-grey: #F5F5F5;
-
-  /* ===== Text ===== */
+  --color-orange: #FF782D;
+  --color-orange-dark: #E85D1F;
+  --color-black: #000000;
   --color-text: #000000;
-  --color-text-secondary: #555555;
-  --color-text-muted: #666666;
-  --color-text-light: #9D9D9D;
+  --color-text-muted: #6F6F6F;
+  --color-text-light: #A0A0A0;
   --color-dark-gray: #555555;
   --color-grey: #9D9D9D;
-  --color-black: #000000;
-
-  /* ===== Border ===== */
   --color-border: #EAEAEA;
-  --color-border-black: #000000;
+  --color-bg-grey: #F5F5F5;
+  --color-white-grey: #F5F5F5;
   --color-card-border: #E1E5F1;
-
-  /* ===== Semantic ===== */
-  --color-success: #55BE24;
-  --color-green: #55BE24;
-  --color-info: #2F6FED;
   --color-blue: #2F6FED;
+  --color-white: #FFFFFF;
+  --color-green: #55BE24;
 
-  /* ===== Legacy aliases ===== */
-  --color-orange: var(--color-primary);
-  --color-orange-dark: var(--color-primary-hover);
-
-  /* ===== Typography ===== */
   --font-main: 'Exo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, Helvetica, sans-serif;
   --font-base: var(--font-main);
 
-  /* ===== Layout ===== */
-  --container-width: 1290px;
   --container-w: 1290px;
-  --header-height: 72px;
-  --breadcrumb-height: 44px;
+  --container-width: 1290px;
 }
 
 * {
