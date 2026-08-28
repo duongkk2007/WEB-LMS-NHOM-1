@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         blogList.innerHTML = posts.map(post => `
             <article class="blog-post" data-id="${post.id}">
-                <a href="${post.url}" class="post-image">
+                <a href="./blog-single.html?id=${post.id}" class="post-image">
                     <img src="${post.image}" alt="${post.title}">
                 </a>
                 <div class="post-content">
                     <h2 class="post-title">
-                        <a href="${post.url}">${post.title}</a>
+                        <a href="./blog-single.html?id=${post.id}">${post.title}</a>
                     </h2>
                     <div class="post-meta">
                         <span class="post-date">
