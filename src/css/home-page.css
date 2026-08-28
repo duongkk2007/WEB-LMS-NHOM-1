@@ -754,8 +754,17 @@ button {
         font-size: 36px;
     }
     .hero-image {
-        display: none;
+    position: absolute;
+    right: 8%;
+    bottom: 0;
+    z-index: 1;
+    max-height: 90%;
     }
+
+.hero-image img {
+    max-height: 620px;
+    width: auto;
+}
     .grow-section {
         flex-direction: column;
     }
@@ -777,7 +786,7 @@ button {
         grid-template-columns: 1fr;
     }
     .section {
-        padding: 50px 0;
+        padding:50px 0;
     }
     .section-title {
         font-size: 26px;
