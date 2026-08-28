@@ -1,47 +1,96 @@
 /**
  * blog-listing.js
- * Xử lý: Search, View mode (Grid/List), Pagination, Hover effect
+ * Đọc JSON → render bài viết động + View mode + Search
  */
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', async function () {
 
-    // ========== ELEMENTS ==========
-    const searchInput   = document.querySelector('.search-box input[type="search"]');
-    const blogList      = document.querySelector('.blog-list');
-    const blogPosts     = document.querySelectorAll('.blog-post');
-    const btnGrid       = document.querySelector('.icon-view-table');
-    const btnList       = document.querySelector('.icon-view-list');
-    const pagination    = document.querySelector('.pagination');
+    const blogList = document.getElementById('blogList');
+    const paginationEl = document.getElementById('pagination');
+    const searchInput = document.querySelector('.search-box input[type="search"]');
+    const btnGrid = document.querySelector('.icon-view-table');
+    const btnList = document.querySelector('.icon-view-list');
 
-    // ========== 1. SEARCH ARTICLES ==========
+    let allPosts = [];
+
+    // ========== 1. LOAD JSON ==========
+    try {
+        // Từ src/js/pages/ → lên 2 cấp rồi vào data/
+        const response = await fetch('../data/blog.json');
+        const data = await response.json();
+        allPosts = data.posts;
+
+        renderPosts(allPosts);
+        renderPagination(data.pagination);
+        // (tùy chọn) renderSidebar(data.sidebar);
+    } catch (error) {
+        console.error('Không load được blog-data.json:', error);
+        if (blogList) {
+            blogList.innerHTML = '<p>Không tải được dữ liệu bài viết.</p>';
+        }
+    }
+
+    // ========== 2. RENDER POSTS ==========
+    function renderPosts(posts) {
+        if (!blogList) return;
+
+        blogList.innerHTML = posts.map(post => `
+            <article class="blog-post" data-id="${post.id}">
+                <a href="${post.url}" class="post-image">
+                    <img src="${post.image}" alt="${post.title}">
+                </a>
+                <div class="post-content">
+                    <h2 class="post-title">
+                        <a href="${post.url}">${post.title}</a>
+                    </h2>
+                    <div class="post-meta">
+                        <span class="post-date">
+                            <img src="../src/assets/icons/Icon-schedule.svg" alt="" class="Icon-schedule">
+                            ${post.date}
+                        </span>
+                    </div>
+                    <p class="post-excerpt">${post.excerpt}</p>
+                </div>
+            </article>
+        `).join('');
+    }
+
+    // ========== 3. RENDER PAGINATION ==========
+    function renderPagination(pagination) {
+        if (!paginationEl) return;
+
+        let html = `<a href="#" class="arrow" aria-label="Previous page">‹</a>`;
+
+        for (let i = 1; i <= pagination.total; i++) {
+            const active = i === pagination.current ? 'page-btn-active' : 'page-btn';
+            html += `<a href="#" class="${active}" data-page="${i}">${i}</a>`;
+        }
+
+        html += `<a href="#" class="arrow" aria-label="Next page">›</a>`;
+        paginationEl.innerHTML = html;
+    }
+
+    // ========== 4. SEARCH ==========
     if (searchInput) {
         searchInput.addEventListener('input', function () {
             const keyword = this.value.trim().toLowerCase();
 
-            blogPosts.forEach(post => {
-                const title   = post.querySelector('.post-title')?.textContent.toLowerCase() || '';
-                const excerpt = post.querySelector('.post-excerpt')?.textContent.toLowerCase() || '';
+            const filtered = allPosts.filter(post =>
+                post.title.toLowerCase().includes(keyword) ||
+                post.excerpt.toLowerCase().includes(keyword)
+            );
 
-                if (title.includes(keyword) || excerpt.includes(keyword)) {
-                    post.style.display = 'flex';
-                } else {
-                    post.style.display = 'none';
-                }
-            });
+            renderPosts(filtered);
         });
     }
 
-    // ========== 2. VIEW MODE (Grid / List) ==========
+    // ========== 5. VIEW MODE ==========
     function setViewMode(mode) {
         if (!blogList) return;
 
-        // Xóa class cũ
         blogList.classList.remove('is-grid', 'is-list');
-
-        // Thêm class mới
         blogList.classList.add(`is-${mode}`);
 
-        // Active button
         if (mode === 'grid') {
             btnGrid?.classList.add('is-active');
             btnList?.classList.remove('is-active');
@@ -50,50 +99,12 @@ document.addEventListener('DOMContentLoaded', function () {
             btnGrid?.classList.remove('is-active');
         }
 
-        // Lưu preference
         localStorage.setItem('blogViewMode', mode);
     }
 
-    // Click Grid
     btnGrid?.addEventListener('click', () => setViewMode('grid'));
-
-    // Click List
     btnList?.addEventListener('click', () => setViewMode('list'));
 
-    // Load preference khi vào trang
     const savedMode = localStorage.getItem('blogViewMode') || 'list';
     setViewMode(savedMode);
-
-    // ========== 3. PAGINATION (demo) ==========
-    if (pagination) {
-        const pageButtons = pagination.querySelectorAll('.page-btn, .page-arrow');
-
-        pageButtons.forEach(btn => {
-            btn.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                // Bỏ active cũ
-                pagination.querySelectorAll('.page-btn').forEach(b => {
-                    b.classList.remove('page-btn-active');
-                });
-
-                // Nếu click vào số trang
-                if (this.classList.contains('page-btn')) {
-                    this.classList.add('page-btn-active');
-                }
-
-                // TODO: Khi có API thật thì gọi fetch page tại đây
-                // Ví dụ: loadPosts(pageNumber);
-                console.log('Chuyển sang trang:', this.textContent.trim());
-            });
-        });
-    }
-
-    // ========== 4. SMOOTH HOVER EFFECT (optional) ==========
-    blogPosts.forEach(post => {
-        post.addEventListener('mouseenter', () => {
-            post.style.transition = 'box-shadow 0.25s ease, transform 0.25s ease';
-        });
-    });
-
 });

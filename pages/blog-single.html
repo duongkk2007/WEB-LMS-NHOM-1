@@ -31,7 +31,7 @@
             <nav class="nav" aria-label="Main navigation">
                 <a href="../index.html" class="home-nav">Home</a>
                 <a href="./course-listing.html" class="course-nav">Courses</a>
-                <a href="./blog-listing.html" class="blog-nav active">Blog</a>
+                <a href="./blog-listing.html" class="blog-nav">Blog</a>
                 <a href="./contact.html" class="page-nav">Page</a>
                 <a href="./auth.html" class="learnpress-nav">LearnPress Add-On</a>
                 <a href="./auth.html" class="theme-nav">Premium Theme</a>
@@ -127,7 +127,7 @@
             <!-- POST NAVIGATION -->
             <nav class="post-navigation" aria-label="Post navigation">
                 <!-- Previous -->
-                <a href="#" class="related-article-prev">
+                <a href="./blog-single.html?id=6" class="related-article-prev">
                     <div class="arrow-navi"><span>‹</span></div>
                     <div class="article-info">
                         <span class="label">Prev Articles</span>
@@ -136,7 +136,7 @@
                 </a>
 
                 <!-- Next -->
-                <a href="#" class="related-article-next">
+                <a href="./blog-single.html?id=2" class="related-article-next">
                     <div class="article-info">
                         <span class="label">Next Articles</span>
                         <span class="title">Best LearnPress WordPress Theme Collection For 2023</span>
@@ -303,19 +303,19 @@
                 <h4 class="widget-title">Recent Posts</h4>
                 <ul class="recent-posts-list">
                     <li>
-                        <a href="#">
+                        <a href="./blog-single.html?id=1">
                             <img src="../src/assets/images/blog/blog-single/Image7.svg" alt="">
                             <span>Best LearnPress WordPress Theme Collection For 2023</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./blog-single.html?id=2">
                             <img src="../src/assets/images/blog/blog-single/Image8.svg" alt="">
                             <span>Best LearnPress WordPress Theme Collection For 2023</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
+                        <a href="./blog-single.html?id=3">
                             <img src="../src/assets/images/blog/blog-single/Image9.svg" alt="">
                             <span>Best LearnPress WordPress Theme Collection For 2023</span>
                         </a>
@@ -339,47 +339,71 @@
     </main>
 
     <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-about">
-            <a href="../index.html" class="logo"><img src="../src/assets/images/banners/Logo.svg" alt="EduPress">EduPress</a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-          </div>
-          <div class="footer-col">
-            <h5>Get Help</h5>
-            <ul>
-              <li><a href="./contact.html">Contact Us</a></li>
-              <li><a href="#">Latest Articles</a></li>
-              <li><a href="./faq.html">FAQ</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h5>Programs</h5>
-            <ul>
-              <li><a href="#">Art &amp; Design</a></li>
-              <li><a href="#">Business</a></li>
-              <li><a href="#">IT &amp; Software</a></li>
-              <li><a href="#">Languages</a></li>
-              <li><a href="#">Programming</a></li>
-            </ul>
-          </div>
-          <div class="footer-col footer-contact">
-            <h5>Contact Us</h5>
-            <p>Address: 2321 New Design Str, Lorem Ipsum10 Hudson Yards, USA</p>
-            <p>Tel: +(123) 2500-567-898</p>
-            <p>Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
-            <div class="footer-socials">
-              <a href="#"><img src="../src/assets/icons/Icon-facebook.svg" alt="Facebook"></a>
-              <a href="#"><img src="../src/assets/icons/Icon-Pinterest.svg" alt="Pinterest"></a>
-              <a href="#"><img src="../src/assets/icons/Icon-twitter.svg" alt="Twitter"></a>
-              <a href="#"><img src="../src/assets/icons/Icon-instragram.svg" alt="Instagram"></a>
-              <a href="#"><img src="../src/assets/icons/Icon-youtube.svg" alt="Youtube"></a>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Cột 1: About -->
+            <div class="footer-about">
+                <a href="/" class="logo-footer">
+                    <img src="../src/assets/images/banners/Logo.svg" alt="EduPress">
+                    EduPress
+                </a>
+                <p class="footer-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
             </div>
-          </div>
+
+            <!-- Cột 2: Get Help -->
+            <div class="footer-col">
+                <h5 class="get-help-title">Get Help</h5>
+                <ul class="footer-list">
+                    <li><a href="./contact.html">Contact Us</a></li>
+                    <li><a href="#">Latest Articles</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 3: Programs -->
+            <div class="footer-col">
+                <h5 class="programs-title">Programs</h5>
+                <ul class="footer-list">
+                    <li><a href="#">Art &amp; Design</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">IT &amp; Software</a></li>
+                    <li><a href="#">Languages</a></li>
+                    <li><a href="#">Programming</a></li>
+                </ul>
+            </div>
+
+            <!-- Cột 4: Contact Us -->
+            <div class="footer-col footer-contact">
+                <h5 class="contact-us-title">Contact Us</h5>
+                <p>Address: 2321 New Design Str, Lorem Ipsum 10 Hudson Yards, USA</p>
+                <p>Tel: +(123) 2500-567-898</p>
+                <p>Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
+
+                <div class="social-list">
+                    <a href="#" class="social-link">
+                        <img src="../src/assets/icons/Icon-facebook.svg" alt="Facebook">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="../src/assets/icons/Icon-Pinterest.svg" alt="Pinterest">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="../src/assets/icons/Icon-twitter.svg" alt="Twitter">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="../src/assets/icons/Icon-instragram.svg" alt="Instagram">
+                    </a>
+                    <a href="#" class="social-link">
+                        <img src="../src/assets/icons/Icon-youtube.svg" alt="Youtube">
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="footer-bottom">Copyright © 2024 LearnPress LMS | Powered by ThimPress</div>
-      </div>
+
+        <div class="footer-bottom">
+            Copyright © 2024 LearnPress LMS | Powered by ThimPress
+        </div>
     </footer>
     
     <!-- JAVASCRIPT -->

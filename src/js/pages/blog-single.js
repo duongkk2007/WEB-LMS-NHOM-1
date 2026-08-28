@@ -3,7 +3,49 @@
  * Fixed to match blog-single.html (IDs: comment-name, comment-email, comment-text)
  */
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+
+    // Lấy id từ URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = parseInt(urlParams.get('id')) || 1;
+
+    try {
+        // Cùng file JSON với listing
+        const response = await fetch('../data/blog.json');
+        const data = await response.json();
+
+        const post = data.posts.find(p => p.id === postId);
+
+        if (post) {
+            // Cập nhật title trang
+            document.title = `${post.title} - EduPress`;
+
+            // Cập nhật tiêu đề bài
+            const pageTitle = document.querySelector('.page-title');
+            if (pageTitle) pageTitle.textContent = post.title;
+
+            // Cập nhật ảnh featured
+            const featuredImg = document.querySelector('.featured-image img');
+            if (featuredImg) {
+                featuredImg.src = post.image;
+                featuredImg.alt = post.title;
+            }
+
+            // Cập nhật ngày
+            const dateEl = document.querySelector('.meta-date time');
+            if (dateEl) {
+                dateEl.textContent = post.date;
+                dateEl.setAttribute('datetime', '2023-01-24'); // có thể map thêm nếu JSON có
+            }
+
+            // Cập nhật breadcrumb
+            const fading = document.querySelector('.fading');
+            if (fading) fading.textContent = post.title;
+        }
+    } catch (error) {
+        console.error('Không load được dữ liệu bài viết:', error);
+    }
+
     // ========== SELECTORS (khớp HTML) ==========
     const commentForm = document.querySelector('.comment-form');
     const nameInput = document.getElementById('comment-name');
