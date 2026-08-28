@@ -1,620 +1,453 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>All Courses - EduPress</title>
-        <!-- FONT-EXO -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <!-- CSS -->
-        <link rel="stylesheet" href="../src/css/course-listing.css">
-    </head>
-    <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Courses - EduPress</title>
+    <!-- FONT-EXO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../src/css/course-listing.css">
+</head>
+<body>
 
-        <!-- HEADER -->
-        <header class="header">
-            <!-- INNER HEADER -->
-            <div class="inner-header">
-                <!-- LOGO HEADER -->
-                <a href="#" class="logo-header">
-                    <div class="logo-icon-header">
-                        <img src="../src/assets/images/banners/Logo.svg" alt="EduPress Logo">
-                    </div>
-                    <span class="header-title">EduPress</span>
-                </a>
+    <!-- HEADER -->
+    <header class="header">
+        <!-- INNER HEADER -->
+        <div class="inner-header">
+            <!-- LOGO HEADER -->
+            <a href="#" class="logo-header">
+                <div class="logo-icon-header">
+                    <img src="../src/assets/images/banners/Logo.svg" alt="EduPress Logo">
+                </div>
+                <span class="header-title">EduPress</span>
+            </a>
 
-                <!-- NAV HEADER -->
-                <nav class="nav">
-                    <a href="#" class="home-nav">Home</a>
-                    <a href="./course-listing.html" class="course-nav">Courses</a>
-                    <a href="./blog-listing.html" class="blog-nav">Blog</a>
-                    <a href="#" class="page-nav">Page</a>
-                    <a href="#" class="learnpress-nav">LearnPress Add-On</a>
-                    <a href="#" class="theme-nav">Premium Theme</a>
-                </nav>
+            <!-- NAV HEADER -->
+            <nav class="nav">
+                <a href="#" class="home-nav">Home</a>
+                <a href="./course-listing.html" class="course-nav">Courses</a>
+                <a href="./blog-listing.html" class="blog-nav">Blog</a>
+                <a href="#" class="page-nav">Page</a>
+                <a href="#" class="learnpress-nav">LearnPress Add-On</a>
+                <a href="#" class="theme-nav">Premium Theme</a>
+            </nav>
 
-                <!-- LOGIN / REGISTER -->
-                <div class="header-right">
-                    <a href="#" class="btn-login">Login / Register</a>
-                    <button type="button" class="search-icon-header" aria-label="Search">
-                        <img src="../src/assets/icons/Icon-search-header.svg" alt="">
+            <!-- LOGIN / REGISTER -->
+            <div class="header-right">
+                <a href="#" class="btn-login">Login / Register</a>
+                <button type="button" class="search-icon-header" aria-label="Search">
+                    <img src="../src/assets/icons/Icon-search-header.svg" alt="">
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+        <div class="content-brb">
+            <a href="#">Homepage</a>
+            <span class="arrow">›</span>
+            <a href="./course-listing.html">Course</a>
+            <span class="arrow">›</span>
+            <span class="fading">The Ultimate Guide To The Best WordPress LMS Plugin</span>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+        <!-- LEFT COURSE -->
+        <div class="container-main">
+            <!-- PAGE HEADER -->
+            <div class="page-header">
+                <h1 class="page-title">All Courses</h1>
+                <div class="page-search">
+                    <form class="search-box" action="#" method="get">
+                        <input type="search" name="q" placeholder="Search" class="search-text" aria-label="Search courses">
+                        <button type="submit" class="search-icon-main" aria-label="Submit search">
+                            <img src="../src/assets/icons/Icon-search-main.svg" alt="">
+                        </button>
+                    </form>
+
+                    <button type="button" class="icon-view-table" aria-label="Grid view">
+                        <img src="../src/assets/icons/Icon-view-table.svg" alt="">
+                    </button>
+
+                    <button type="button" class="icon-view-list" aria-label="List view">
+                        <img src="../src/assets/icons/Icon-view-list.svg" alt="">
                     </button>
                 </div>
             </div>
-        </header>
 
-        <!-- BREADCRUMB -->
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-            <div class="content-brb">
-                <a href="#">Homepage</a>
-                <span class="arrow">› </span>
-                <a href="./course-listing.html">Course</a>
-                <span class="arrow">›</span>
-                <span class="fading">The Ultimate Guide To The Best WordPress LMS Plugin</span>
-            </div>
-        </nav>
-
-        <!-- MAIN -->
-        <main class="main">
-            <!-- LEFT COURSE -->
-            <div class="container-main">
-                <!-- PAGE HEADER -->
-                <div class="page-header">
-                    <h1 class="page-title">All Courses</h1>
-                    <div class="page-search">
-                        <form class="search-box" action="#" method="get">
-                            <input type="search" name="q" placeholder="Search" class="search-text" aria-label="Search courses">
-                            <button type="submit" class="search-icon-main" aria-label="Submit search">
-                                <img src="../src/assets/icons/Icon-search-main.svg" alt="">
-                            </button>
-                        </form>
-
-                        <button type="button" class="icon-view-table" aria-label="Grid view">
-                            <img src="../src/assets/icons/Icon-view-table.svg" alt="">
-                        </button>
-
-                        <button type="button" class="icon-view-list" aria-label="List view">
-                            <img src="../src/assets/icons/Icon-view-list.svg" alt="">
-                        </button>
+            <!-- CONTENT LIST -->
+            <div class="course-list">
+                <!-- TEMPLATE CARD (ẩn) -->
+                <article class="course-card template-card" style="display: none;">
+                    <div class="course-image">
+                        <img src="" alt="">
+                        <div class="badge"><span></span></div>
                     </div>
-                </div>
 
-                <!-- CONTENT LIST -->
-                <div class="course-list">
-                    <!-- COURSE 1 -->
-                    <article class="course-card">
-                        <div class="course-image">
-                            <img src="../src/assets/images/courses/courses-listing/image-1.png" alt="Create An LMS Website With LearnPress">
-                            <div class="badge"><span>Photography</span></div>
+                    <div class="course-content">
+                        <div class="course-meta">
+                            <div class="course-author">
+                                <span class="author">
+                                    <span class="fading">by</span>
+                                    <span class="author-name"></span>
+                                </span>
+                            </div>
+                            <h4 class="course-title">
+                                <a href="#"></a>
+                            </h4>
                         </div>
 
-                        <div class="course-content">
-                            <div class="course-meta">
-                                <div class="course-author">
-                                    <span class="author"><span class="fading">by</span> Determined-Poitras</span>
-                                </div>
-                                <h4 class="course-title">
-                                    <a href="./course-single.html?id=1">Create An LMS Website With LearnPress</a>
-                                </h4>
-                            </div>
-
-                            <div class="course-stats">
-                                <span><img src="../src/assets/icons/meta1.svg" alt=""> 2 Weeks</span>
-                                <span><img src="../src/assets/icons/meta2.svg" alt=""> 156 Students</span>
-                                <span><img src="../src/assets/icons/meta3.svg" alt=""> All levels</span>
-                                <span><img src="../src/assets/icons/meta4.svg" alt=""> 20 Lessons</span>
-                            </div>
-
-                            <div class="course-footer">
-                                <div class="price">
-                                    <span class="old-price">$29.0</span>
-                                    <span class="new-price">Free</span>
-                                </div>
-                                <a href="./course-single.html?id=1" class="view-more">View More</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- COURSE 2 -->
-                    <article class="course-card">
-                        <div class="course-image">
-                            <img src="../src/assets/images/courses/courses-listing/image-2.png" alt="Create An LMS Website With LearnPress">
-                            <div class="badge"><span>Photography</span></div>
+                        <div class="course-stats">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
 
-                        <div class="course-content">
-                            <div class="course-meta">
-                                <div class="course-author">
-                                    <span class="author"><span class="fading">by</span> Determined-Poitras</span>
-                                </div>
-                                <h4 class="course-title">
-                                    <a href="./course-single.html?id=2">Create An LMS Website With LearnPress</a>
-                                </h4>
+                        <div class="course-footer">
+                            <div class="price">
+                                <span class="old-price"></span>
+                                <span class="new-price"></span>
                             </div>
-
-                            <div class="course-stats">
-                                <span><img src="../src/assets/icons/meta1.svg" alt=""> 2 Weeks</span>
-                                <span><img src="../src/assets/icons/meta2.svg" alt=""> 156 Students</span>
-                                <span><img src="../src/assets/icons/meta3.svg" alt=""> All levels</span>
-                                <span><img src="../src/assets/icons/meta4.svg" alt=""> 20 Lessons</span>
-                            </div>
-
-                            <div class="course-footer">
-                                <div class="price">
-                                    <span class="old-price">$29.0</span>
-                                    <span class="new-price">Free</span>
-                                </div>
-                                <a href="./course-single.html?id=2" class="view-more">View More</a>
-                            </div>
+                            <a href="#" class="view-more">View More</a>
                         </div>
-                    </article>
+                    </div>
+                </article>
 
-                    <!-- COURSE 3 -->
-                    <article class="course-card">
-                        <div class="course-image">
-                            <img src="../src/assets/images/courses/courses-listing/image-3.png" alt="Create An LMS Website With LearnPress">
-                            <div class="badge"><span>Photography</span></div>
-                        </div>
+                <!-- Nơi render card -->
+                <div class="course-cards-wrapper"></div>
 
-                        <div class="course-content">
-                            <div class="course-meta">
-                                <div class="course-author">
-                                    <span class="author"><span class="fading">by</span> Determined-Poitras</span>
-                                </div>
-                                <h4 class="course-title">
-                                    <a href="./course-single.html?id=3">Create An LMS Website With LearnPress</a>
-                                </h4>
-                            </div>
-
-                            <div class="course-stats">
-                                <span><img src="../src/assets/icons/meta1.svg" alt=""> 2 Weeks</span>
-                                <span><img src="../src/assets/icons/meta2.svg" alt=""> 156 Students</span>
-                                <span><img src="../src/assets/icons/meta3.svg" alt=""> All levels</span>
-                                <span><img src="../src/assets/icons/meta4.svg" alt=""> 20 Lessons</span>
-                            </div>
-
-                            <div class="course-footer">
-                                <div class="price">
-                                    <span class="old-price">$29.0</span>
-                                    <span class="new-price">Free</span>
-                                </div>
-                                <a href="./course-single.html?id=3" class="view-more">View More</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- COURSE 4 -->
-                    <article class="course-card">
-                        <div class="course-image">
-                            <img src="../src/assets/images/courses/courses-listing/image-4.png" alt="Create An LMS Website With LearnPress">
-                            <div class="badge"><span>Photography</span></div>
-                        </div>
-
-                        <div class="course-content">
-                            <div class="course-meta">
-                                <div class="course-author">
-                                    <span class="author"><span class="fading">by</span> Determined-Poitras</span>
-                                </div>
-                                <h4 class="course-title">
-                                    <a href="./course-single.html?id=4">Create An LMS Website With LearnPress</a>
-                                </h4>
-                            </div>
-
-                            <div class="course-stats">
-                                <span><img src="../src/assets/icons/meta1.svg" alt=""> 2 Weeks</span>
-                                <span><img src="../src/assets/icons/meta2.svg" alt=""> 156 Students</span>
-                                <span><img src="../src/assets/icons/meta3.svg" alt=""> All levels</span>
-                                <span><img src="../src/assets/icons/meta4.svg" alt=""> 20 Lessons</span>
-                            </div>
-
-                            <div class="course-footer">
-                                <div class="price">
-                                    <span class="old-price">$29.0</span>
-                                    <span class="new-price">Free</span>
-                                </div>
-                                <a href="./course-single.html?id=4" class="view-more">View More</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- COURSE 5 -->
-                    <article class="course-card">
-                        <div class="course-image">
-                            <img src="../src/assets/images/courses/courses-listing/image-5.png" alt="Create An LMS Website With LearnPress">
-                            <div class="badge"><span>Photography</span></div>
-                        </div>
-
-                        <div class="course-content">
-                            <div class="course-meta">
-                                <div class="course-author">
-                                    <span class="author"><span class="fading">by</span> Determined-Poitras</span>
-                                </div>
-                                <h4 class="course-title">
-                                    <a href="./course-single.html?id=5">Create An LMS Website With LearnPress</a>
-                                </h4>
-                            </div>
-
-                            <div class="course-stats">
-                                <span><img src="../src/assets/icons/meta1.svg" alt=""> 2 Weeks</span>
-                                <span><img src="../src/assets/icons/meta2.svg" alt=""> 156 Students</span>
-                                <span><img src="../src/assets/icons/meta3.svg" alt=""> All levels</span>
-                                <span><img src="../src/assets/icons/meta4.svg" alt=""> 20 Lessons</span>
-                            </div>
-
-                            <div class="course-footer">
-                                <div class="price">
-                                    <span class="old-price">$29.0</span>
-                                    <span class="new-price">Free</span>
-                                </div>
-                                <a href="./course-single.html?id=5" class="view-more">View More</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- COURSE 6 -->
-                    <article class="course-card">
-                        <div class="course-image">
-                            <img src="../src/assets/images/courses/courses-listing/image-6.png" alt="Create An LMS Website With LearnPress">
-                            <div class="badge"><span>Photography</span></div>
-                        </div>
-
-                        <div class="course-content">
-                            <div class="course-meta">
-                                <div class="course-author">
-                                    <span class="author"><span class="fading">by</span> Determined-Poitras</span>
-                                </div>
-                                <h4 class="course-title">
-                                    <a href="./course-single.html?id=6">Create An LMS Website With LearnPress</a>
-                                </h4>
-                            </div>
-
-                            <div class="course-stats">
-                                <span><img src="../src/assets/icons/meta1.svg" alt=""> 2 Weeks</span>
-                                <span><img src="../src/assets/icons/meta2.svg" alt=""> 156 Students</span>
-                                <span><img src="../src/assets/icons/meta3.svg" alt=""> All levels</span>
-                                <span><img src="../src/assets/icons/meta4.svg" alt=""> 20 Lessons</span>
-                            </div>
-
-                            <div class="course-footer">
-                                <div class="price">
-                                    <span class="old-price">$29.0</span>
-                                    <span class="new-price">Free</span>
-                                </div>
-                                <a href="./course-single.html?id=6" class="view-more">View More</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- PAGINATION -->
-                    <nav class="pagination" aria-label="Pagination">
-                        <a href="#" class="arrow-active" aria-label="Previous page">
-                            <span class="special-number">1</span>
-                            <span class="arrow">‹</span>
-                        </a>
-                        <a href="#" class="page-btn-active" aria-current="page">1</a>
-                        <a href="#" class="page-btn">2</a>
-                        <a href="#" class="page-btn">3</a>
-                        <a href="#" class="arrow" aria-label="Next page">›</a>
-                    </nav>
-                </div>
-            </div>
-
-            <!-- COURSE RIGHT -->
-            <aside class="sidebar">
-                <!-- COURSE CATEGORY -->
-                <div class="course-category">
-                    <h4 class="category-title">Course Category</h4>
-                    <ul class="category-list">
-                        <li>
-                            <label>
-                                <input type="checkbox" name="category" value="commercial">
-                                <span>Commercial</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="category" value="office">
-                                <span>Office</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="category" value="shop">
-                                <span>Shop</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="category" value="educate">
-                                <span>Educate</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="category" value="academy">
-                                <span>Academy</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="category" value="single-family-home">
-                                <span>Single family home</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="category" value="studio">
-                                <span>Studio</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="category" value="university">
-                                <span>University</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- COURSE INSTRUCTORS -->
-                <div class="course-instructors">
-                    <h4 class="instructors-title">Instructors</h4>
-                    <ul class="instructors-list">
-                        <li>
-                            <label>
-                                <input type="checkbox" name="instructor" value="kenny-white">
-                                <span>Kenny White</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="instructor" value="john-doe">
-                                <span>John Doe</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- COURSE PRICE -->
-                <div class="course-price">
-                    <h4 class="price-title">Price</h4>
-                    <ul class="price-list">
-                        <li>
-                            <label>
-                                <input type="checkbox" name="price" value="all">
-                                <span>All</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="price" value="free">
-                                <span>Free</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="price" value="paid">
-                                <span>Paid</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- COURSE REVIEW -->
-                <div class="course-review">
-                    <h4 class="review-title">Review</h4>
-                    <ul class="stars-list">
-                        <!-- 5 STARS -->
-                        <li>
-                            <label>
-                                <input type="checkbox" name="review" value="5">
-                                <ul class="stars">
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                </ul>
-                            </label>
-                            <span class="count">(1,025)</span>
-                        </li>
-                        <!-- 4 STARS -->
-                        <li>
-                            <label>
-                                <input type="checkbox" name="review" value="4">
-                                <ul class="stars">
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                </ul>
-                            </label>
-                            <span class="count">(1,025)</span>
-                        </li>
-                        <!-- 3 STARS -->
-                        <li>
-                            <label>
-                                <input type="checkbox" name="review" value="3">
-                                <ul class="stars">
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                </ul>
-                            </label>
-                            <span class="count">(1,025)</span>
-                        </li>
-                        <!-- 2 STARS -->
-                        <li>
-                            <label>
-                                <input type="checkbox" name="review" value="2">
-                                <ul class="stars">
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                </ul>
-                            </label>
-                            <span class="count">(1,025)</span>
-                        </li>
-                        <!-- 1 STAR -->
-                        <li>
-                            <label>
-                                <input type="checkbox" name="review" value="1">
-                                <ul class="stars">
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                    <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
-                                </ul>
-                            </label>
-                            <span class="count">(1,025)</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- COURSE LEVEL -->
-                <div class="course-level">
-                    <h4 class="level-title">Level</h4>
-                    <ul class="level-list">
-                        <li>
-                            <label>
-                                <input type="checkbox" name="level" value="all-levels">
-                                <span>All levels</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="level" value="beginner">
-                                <span>Beginner</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="level" value="intermediate">
-                                <span>Intermediate</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                        <li>
-                            <label>
-                                <input type="checkbox" name="level" value="expert">
-                                <span>Expert</span>
-                            </label>
-                            <span class="count">15</span>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
-        </main>
-        
-        <!-- FOOTER -->
-        <footer class="footer">
-            <div class="footer-container">
-
-                <!-- COLUMN 1 -->
-                <div class="footer-column">
-                    <a href="#" class="logo-footer">
-                        <img src="../src/assets/images/banners/Logo.svg" alt="EduPress">
-                        <span>EduPress</span>
+                <!-- PAGINATION -->
+                <nav class="pagination" aria-label="Pagination">
+                    <a href="#" class="arrow-active" aria-label="Previous page">
+                        <span class="special-number">1</span>
+                        <span class="arrow">‹</span>
                     </a>
-                    <p class="footer-text">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    </p>
-                </div>
+                    <a href="#" class="arrow" aria-label="Next page">›</a>
+                </nav>
+            </div>
+        </div>   <!-- ← ĐÓNG .container-main TẠI ĐÂY -->
 
-                <!-- COLUMN 2 -->
-                <div class="footer-column">
-                    <h4 class="get-help-title">GET HELP</h4>
-                    <ul class="footer-list">
-                        <li><a href="./contact.html">Contact Us</a></li>
-                        <li><a href="#">Latest Articles</a></li>
-                        <li><a href="./faq.html">FAQ</a></li>
-                    </ul>
-                </div>
-
-                <!-- COLUMN 3 -->
-                <div class="footer-column">
-                    <h4 class="programs-title">PROGRAMS</h4>
-                    <ul class="footer-list">
-                        <li><a href="#">Art & Design</a></li>
-                        <li><a href="#">Business</a></li>
-                        <li><a href="#">IT & Software</a></li>
-                        <li><a href="#">Languages</a></li>
-                        <li><a href="#">Programming</a></li>
-                    </ul>
-                </div>
-
-                <!-- COLUMN 4 -->
-                <div class="footer-column">
-                    <h4 class="contact-us-title">CONTACT US</h4>
-                    <div class="footer-contact">
-                        <p class="address">Address: 2321 New Design Str, Lorem Ipsum 10 Hudson Yards, USA</p>
-                        <p class="telephone">Tel: +(123) 2500-567-898</p>
-                        <p class="mail">Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
-                    </div>
-                    <div class="social">
-                        <ul class="social-list">
-                            <li class="social-link">
-                                <a href="#" aria-label="Facebook">
-                                    <img src="../src/assets/icons/Icon-facebook.svg" alt="">
-                                </a>
-                            </li>
-                            <li class="social-link">
-                                <a href="#" aria-label="Pinterest">
-                                    <img src="../src/assets/icons/Icon-Pinterest.svg" alt="">
-                                </a>
-                            </li>
-                            <li class="social-link">
-                                <a href="#" aria-label="Twitter">
-                                    <img src="../src/assets/icons/Icon-twitter.svg" alt="">
-                                </a>
-                            </li>
-                            <li class="social-link">
-                                <a href="#" aria-label="Instagram">
-                                    <img src="../src/assets/icons/Icon-instragram.svg" alt="">
-                                </a>
-                            </li>
-                            <li class="social-link">
-                                <a href="#" aria-label="Youtube">
-                                    <img src="../src/assets/icons/Icon-youtube.svg" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- COURSE RIGHT (SIDEBAR) -->
+        <aside class="sidebar">
+            <!-- COURSE CATEGORY -->
+            <div class="course-category">
+                <h4 class="category-title">Course Category</h4>
+                <ul class="category-list">
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="commercial">
+                            <span>Commercial</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="office">
+                            <span>Office</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="shop">
+                            <span>Shop</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="educate">
+                            <span>Educate</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="academy">
+                            <span>Academy</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="single-family-home">
+                            <span>Single family home</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="studio">
+                            <span>Studio</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="category" value="university">
+                            <span>University</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                </ul>
             </div>
 
-            <div class="footer-bottom">
-                Copyright © 2024 LearnPress LMS | Powered by ThimPress
+            <!-- COURSE INSTRUCTORS -->
+            <div class="course-instructors">
+                <h4 class="instructors-title">Instructors</h4>
+                <ul class="instructors-list">
+                    <li>
+                        <label>
+                            <input type="checkbox" name="instructor" value="kenny-white">
+                            <span>Kenny White</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="instructor" value="john-doe">
+                            <span>John Doe</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                </ul>
             </div>
-        </footer>
 
-        <!-- JAVASCRIPT  -->
-        <script src="../src/js/pages/course-listing.js"></script>
-    </body>
-    </html>
+            <!-- COURSE PRICE -->
+            <div class="course-price">
+                <h4 class="price-title">Price</h4>
+                <ul class="price-list">
+                    <li>
+                        <label>
+                            <input type="checkbox" name="price" value="all">
+                            <span>All</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="price" value="free">
+                            <span>Free</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="price" value="paid">
+                            <span>Paid</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                </ul>
+            </div>
 
-    <!-- SUA NGAY 26/8/2026 -->
+            <!-- COURSE REVIEW -->
+            <div class="course-review">
+                <h4 class="review-title">Review</h4>
+                <ul class="stars-list">
+                    <!-- 5 STARS -->
+                    <li>
+                        <label>
+                            <input type="checkbox" name="review" value="5">
+                            <ul class="stars">
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                            </ul>
+                        </label>
+                        <span class="count">(1,025)</span>
+                    </li>
+                    <!-- 4 STARS -->
+                    <li>
+                        <label>
+                            <input type="checkbox" name="review" value="4">
+                            <ul class="stars">
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                            </ul>
+                        </label>
+                        <span class="count">(1,025)</span>
+                    </li>
+                    <!-- 3 STARS -->
+                    <li>
+                        <label>
+                            <input type="checkbox" name="review" value="3">
+                            <ul class="stars">
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                            </ul>
+                        </label>
+                        <span class="count">(1,025)</span>
+                    </li>
+                    <!-- 2 STARS -->
+                    <li>
+                        <label>
+                            <input type="checkbox" name="review" value="2">
+                            <ul class="stars">
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                            </ul>
+                        </label>
+                        <span class="count">(1,025)</span>
+                    </li>
+                    <!-- 1 STAR -->
+                    <li>
+                        <label>
+                            <input type="checkbox" name="review" value="1">
+                            <ul class="stars">
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-yellow"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                                <li><img src="../src/assets/icons/Icon-star.svg" alt="" class="star-gray"></li>
+                            </ul>
+                        </label>
+                        <span class="count">(1,025)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- COURSE LEVEL -->
+            <div class="course-level">
+                <h4 class="level-title">Level</h4>
+                <ul class="level-list">
+                    <li>
+                        <label>
+                            <input type="checkbox" name="level" value="all-levels">
+                            <span>All levels</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="level" value="beginner">
+                            <span>Beginner</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="level" value="intermediate">
+                            <span>Intermediate</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                    <li>
+                        <label>
+                            <input type="checkbox" name="level" value="expert">
+                            <span>Expert</span>
+                        </label>
+                        <span class="count">15</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </main>
+    
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <!-- COLUMN 1 -->
+            <div class="footer-column">
+                <a href="#" class="logo-footer">
+                    <img src="../src/assets/images/banners/Logo.svg" alt="EduPress">
+                    <span>EduPress</span>
+                </a>
+                <p class="footer-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+
+            <!-- COLUMN 2 -->
+            <div class="footer-column">
+                <h4 class="get-help-title">GET HELP</h4>
+                <ul class="footer-list">
+                    <li><a href="./contact.html">Contact Us</a></li>
+                    <li><a href="#">Latest Articles</a></li>
+                    <li><a href="./faq.html">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 3 -->
+            <div class="footer-column">
+                <h4 class="programs-title">PROGRAMS</h4>
+                <ul class="footer-list">
+                    <li><a href="#">Art & Design</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">IT & Software</a></li>
+                    <li><a href="#">Languages</a></li>
+                    <li><a href="#">Programming</a></li>
+                </ul>
+            </div>
+
+            <!-- COLUMN 4 -->
+            <div class="footer-column">
+                <h4 class="contact-us-title">CONTACT US</h4>
+                <div class="footer-contact">
+                    <p class="address">Address: 2321 New Design Str, Lorem Ipsum 10 Hudson Yards, USA</p>
+                    <p class="telephone">Tel: +(123) 2500-567-898</p>
+                    <p class="mail">Mail: <a href="mailto:supportlms@gmail.com">supportlms@gmail.com</a></p>
+                </div>
+                <div class="social">
+                    <ul class="social-list">
+                        <li class="social-link">
+                            <a href="#" aria-label="Facebook">
+                                <img src="../src/assets/icons/Icon-facebook.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="social-link">
+                            <a href="#" aria-label="Pinterest">
+                                <img src="../src/assets/icons/Icon-Pinterest.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="social-link">
+                            <a href="#" aria-label="Twitter">
+                                <img src="../src/assets/icons/Icon-twitter.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="social-link">
+                            <a href="#" aria-label="Instagram">
+                                <img src="../src/assets/icons/Icon-instragram.svg" alt="">
+                            </a>
+                        </li>
+                        <li class="social-link">
+                            <a href="#" aria-label="Youtube">
+                                <img src="../src/assets/icons/Icon-youtube.svg" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            Copyright © 2024 LearnPress LMS | Powered by ThimPress
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT  -->
+    <script src="../src/js/pages/course-listing.js"></script>
+</body>
+</html>
+
+<!-- SUA NGAY 26/8/2026 -->

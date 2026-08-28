@@ -1,20 +1,21 @@
 /**
- * EduPress - Course Listing Page (Dynamic - Hướng B)
+ * EduPress - Course Listing (Dynamic - Hướng B)
+ * JAVASCRIPT
  */
 
 (function () {
     "use strict";
 
-    // ========== DOM REFS ==========
-    const searchForm = document.querySelector(".search-box");
-    const searchInput = document.querySelector(".search-text");
-    const headerSearchBtn = document.querySelector(".search-icon-header");
-    const viewTableBtn = document.querySelector(".icon-view-table");
-    const viewListBtn = document.querySelector(".icon-view-list");
-    const courseList = document.querySelector(".course-list");
-    const cardsWrapper = document.querySelector(".course-cards-wrapper");
-    const pagination = document.querySelector(".pagination");
-    const sidebar = document.querySelector(".sidebar");
+    // ========== DOM ==========
+    const searchForm     = document.querySelector(".search-box");
+    const searchInput    = document.querySelector(".search-text");
+    const headerSearchBtn= document.querySelector(".search-icon-header");
+    const viewTableBtn   = document.querySelector(".icon-view-table");
+    const viewListBtn    = document.querySelector(".icon-view-list");
+    const courseList     = document.querySelector(".course-list");
+    const cardsWrapper   = document.querySelector(".course-cards-wrapper");
+    const pagination     = document.querySelector(".pagination");
+    const sidebar        = document.querySelector(".sidebar");
 
     // ========== STATE ==========
     const state = {
@@ -27,16 +28,16 @@
             instructor: [],
             price: [],
             review: [],
-            level: [],
+            level: []
         },
         allCourses: [],
-        courseCards: [],
+        courseCards: []
     };
 
     // ========== TOAST ==========
     function showToast(message, type = "info") {
-        const existing = document.querySelector(".js-toast");
-        if (existing) existing.remove();
+        const old = document.querySelector(".js-toast");
+        if (old) old.remove();
 
         const toast = document.createElement("div");
         toast.className = "js-toast";
@@ -57,7 +58,7 @@
             zIndex: "9999",
             opacity: "0",
             transform: "translateY(20px)",
-            transition: "all 0.3s ease",
+            transition: "all 0.3s ease"
         });
 
         document.body.appendChild(toast);
@@ -73,27 +74,27 @@
         }, 3000);
     }
 
-    // ========== LOAD JSON ==========
+    // ========== LOAD DATA ==========
     async function loadCourses() {
         try {
             const res = await fetch("../data/courses.json");
-            if (!res.ok) throw new Error("Cannot load courses.json");
+            if (!res.ok) throw new Error("Không thể tải courses.json");
             const data = await res.json();
             return data.courses || data;
         } catch (err) {
             console.error(err);
-            showToast("Failed to load courses", "error");
+            showToast("Không tải được danh sách khóa học", "error");
             return [];
         }
     }
 
-    // ========== CREATE CARD ==========
+    // ========== TẠO CARD ==========
     function createCourseCard(course, template) {
         const card = template.cloneNode(true);
         card.style.display = "";
         card.classList.remove("template-card");
 
-        // Image
+        // Ảnh
         const img = card.querySelector(".course-image img");
         if (img) {
             img.src = course.image;
@@ -102,14 +103,14 @@
         }
 
         // Badge
-        const badge = card.querySelector(".badge span");
-        if (badge) badge.textContent = course.category;
+        const badgeSpan = card.querySelector(".badge span");
+        if (badgeSpan) badgeSpan.textContent = course.category;
 
-        // Author
+        // Tác giả
         const authorName = card.querySelector(".author-name");
         if (authorName) authorName.textContent = course.author;
 
-        // Title + link
+        // Tiêu đề + link
         const titleLink = card.querySelector(".course-title a");
         if (titleLink) {
             titleLink.textContent = course.title;
@@ -123,20 +124,20 @@
                 "../src/assets/icons/meta1.svg",
                 "../src/assets/icons/meta2.svg",
                 "../src/assets/icons/meta3.svg",
-                "../src/assets/icons/meta4.svg",
+                "../src/assets/icons/meta4.svg"
             ];
             const values = [
                 course.duration,
                 `${course.students} Students`,
                 course.level,
-                `${course.lessons} Lessons`,
+                `${course.lessons} Lessons`
             ];
-            statSpans.forEach((span, idx) => {
-                span.innerHTML = `<img src="${icons[idx]}" alt=""> ${values[idx]}`;
+            statSpans.forEach((span, i) => {
+                span.innerHTML = `<img src="${icons[i]}" alt=""> ${values[i]}`;
             });
         }
 
-        // Price
+        // Giá
         const oldPrice = card.querySelector(".old-price");
         const newPrice = card.querySelector(".new-price");
         if (oldPrice) oldPrice.textContent = `$${Number(course.oldPrice).toFixed(1)}`;
@@ -145,25 +146,25 @@
             newPrice.style.color = course.isFree ? "#55BE24" : "#000";
         }
 
-        // View more
+        // View More
         const viewMore = card.querySelector(".view-more");
         if (viewMore) viewMore.href = `./course-single.html?id=${course.id}`;
 
-        // Data attributes
-        card.dataset.id = course.id;
+        // Data attributes để filter
+        card.dataset.id       = course.id;
         card.dataset.category = (course.category || "").toLowerCase();
-        card.dataset.author = (course.author || "").toLowerCase();
-        card.dataset.level = (course.level || "").toLowerCase();
-        card.dataset.free = course.isFree ? "true" : "false";
-        card.dataset.rating = course.rating || 0;
+        card.dataset.author   = (course.author || "").toLowerCase();
+        card.dataset.level    = (course.level || "").toLowerCase();
+        card.dataset.free     = course.isFree ? "true" : "false";
+        card.dataset.rating   = course.rating || 0;
 
         return card;
     }
 
-    // ========== FILTER HELPERS ==========
+    // ========== FILTER ==========
     function matchSearch(card, query) {
         if (!query) return true;
-        const title = card.querySelector(".course-title a")?.textContent?.toLowerCase() || "";
+        const title  = card.querySelector(".course-title a")?.textContent?.toLowerCase() || "";
         const author = card.querySelector(".author-name")?.textContent?.toLowerCase() || "";
         return title.includes(query) || author.includes(query);
     }
@@ -201,9 +202,9 @@
     }
 
     function getFilteredCards() {
-        return state.courseCards.filter(card => {
-            return matchSearch(card, state.searchQuery) && matchFilters(card);
-        });
+        return state.courseCards.filter(card =>
+            matchSearch(card, state.searchQuery) && matchFilters(card)
+        );
     }
 
     // ========== RENDER ==========
@@ -211,16 +212,17 @@
         const filtered = getFilteredCards();
         const total = filtered.length;
         const totalPages = Math.max(1, Math.ceil(total / state.itemsPerPage));
+
         if (state.currentPage > totalPages) state.currentPage = totalPages;
 
         const start = (state.currentPage - 1) * state.itemsPerPage;
-        const end = start + state.itemsPerPage;
+        const end   = start + state.itemsPerPage;
         const pageCards = filtered.slice(start, end);
 
         // Ẩn tất cả
-        state.courseCards.forEach(c => (c.style.display = "none"));
+        state.courseCards.forEach(c => c.style.display = "none");
         // Hiện trang hiện tại
-        pageCards.forEach(c => (c.style.display = ""));
+        pageCards.forEach(c => c.style.display = "");
 
         renderPagination(totalPages, total);
     }
@@ -229,7 +231,7 @@
         if (!pagination) return;
 
         // Xóa nút số cũ
-        pagination.querySelectorAll(".page-btn, .page-btn-active").forEach(b => b.remove());
+        pagination.querySelectorAll(".page-btn, .page-btn-active").forEach(btn => btn.remove());
 
         const nextArrow = pagination.querySelector('a[aria-label="Next page"]');
         const prevArrow = pagination.querySelector('a[aria-label="Previous page"]');
@@ -241,7 +243,7 @@
             a.className = i === state.currentPage ? "page-btn-active" : "page-btn";
             if (i === state.currentPage) a.setAttribute("aria-current", "page");
 
-            a.addEventListener("click", (e) => {
+            a.addEventListener("click", e => {
                 e.preventDefault();
                 state.currentPage = i;
                 renderCourses();
@@ -251,8 +253,9 @@
             else pagination.appendChild(a);
         }
 
+        // Prev / Next
         if (prevArrow) {
-            prevArrow.onclick = (e) => {
+            prevArrow.onclick = e => {
                 e.preventDefault();
                 if (state.currentPage > 1) {
                     state.currentPage--;
@@ -261,7 +264,7 @@
             };
         }
         if (nextArrow) {
-            nextArrow.onclick = (e) => {
+            nextArrow.onclick = e => {
                 e.preventDefault();
                 if (state.currentPage < totalPages) {
                     state.currentPage++;
@@ -270,11 +273,13 @@
             };
         }
 
-        pagination.style.display = totalItems === 0 || totalPages <= 1 ? "none" : "flex";
+        pagination.style.display = (totalItems === 0 || totalPages <= 1) ? "none" : "flex";
     }
 
+    // ========== VIEW MODE ==========
     function applyViewMode() {
         if (!courseList) return;
+
         if (state.viewMode === "grid") {
             courseList.classList.add("is-grid");
             courseList.classList.remove("is-list");
@@ -315,8 +320,9 @@
     function collectFilters() {
         state.filters = { category: [], instructor: [], price: [], review: [], level: [] };
         if (!sidebar) return;
+
         sidebar.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
-            const name = cb.name;
+            const name  = cb.name;
             const value = cb.value.toLowerCase();
             if (state.filters[name]) state.filters[name].push(value);
         });
@@ -334,18 +340,18 @@
 
         const template = document.querySelector(".template-card");
         if (!template || !cardsWrapper) {
-            console.error("Template card or wrapper not found");
+            console.error("Không tìm thấy template-card hoặc course-cards-wrapper");
             return;
         }
 
-        // Tạo card
+        // Tạo toàn bộ card
         state.courseCards = state.allCourses.map(course => {
             const card = createCourseCard(course, template);
             cardsWrapper.appendChild(card);
             return card;
         });
 
-        // Events
+        // Gắn sự kiện
         searchForm?.addEventListener("submit", handleSearch);
         searchInput?.addEventListener("input", handleSearchInput);
         headerSearchBtn?.addEventListener("click", () => searchInput?.focus());

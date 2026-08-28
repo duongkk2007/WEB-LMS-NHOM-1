@@ -1,0 +1,92 @@
+{
+  "page": {
+    "title": "All Articles",
+    "breadcrumb": ["Homepage", "Blog"]
+  },
+  "search": {
+    "placeholder": "Search",
+    "viewModes": ["grid", "list"]
+  },
+  "posts": [
+    {
+      "id": 1,
+      "title": "Best LearnPress WordPress Theme Collection For 2023",
+      "date": "Jan 24, 2023",
+      "excerpt": "Looking for an amazing & well-functional LearnPress WordPress Theme? Online education...",
+      "image": "../src/assets/images/blog/blog-listing/Image1.jpg",
+      "url": "./blog-single.html"
+    },
+    {
+      "id": 2,
+      "title": "Best LearnPress WordPress Theme Collection For 2023",
+      "date": "Jan 24, 2023",
+      "excerpt": "Looking for an amazing & well-functional LearnPress WordPress Theme? Online education...",
+      "image": "../src/assets/images/blog/blog-listing/Image2.jpg",
+      "url": "./blog-single.html"
+    },
+    {
+      "id": 3,
+      "title": "Best LearnPress WordPress Theme Collection For 2023",
+      "date": "Jan 24, 2023",
+      "excerpt": "Looking for an amazing & well-functional LearnPress WordPress Theme? Online education...",
+      "image": "../src/assets/images/blog/blog-listing/Image3.jpg",
+      "url": "./blog-single.html"
+    },
+    {
+      "id": 4,
+      "title": "Best LearnPress WordPress Theme Collection For 2023",
+      "date": "Jan 24, 2023",
+      "excerpt": "Looking for an amazing & well-functional LearnPress WordPress Theme? Online education...",
+      "image": "../src/assets/images/blog/blog-listing/Image4.jpg",
+      "url": "./blog-single.html"
+    },
+    {
+      "id": 5,
+      "title": "Best LearnPress WordPress Theme Collection For 2023",
+      "date": "Jan 24, 2023",
+      "excerpt": "Looking for an amazing & well-functional LearnPress WordPress Theme? Online education...",
+      "image": "../src/assets/images/blog/blog-listing/Image5.jpg",
+      "url": "./blog-single.html"
+    },
+    {
+      "id": 6,
+      "title": "Best LearnPress WordPress Theme Collection For 2023",
+      "date": "Jan 24, 2023",
+      "excerpt": "Looking for an amazing & well-functional LearnPress WordPress Theme? Online education...",
+      "image": "../src/assets/images/blog/blog-listing/Image6.jpg",
+      "url": "./blog-single.html"
+    }
+  ],
+  "pagination": {
+    "current": 1,
+    "total": 3
+  },
+  "sidebar": {
+    "categories": [
+      { "name": "Commercial", "count": 15 },
+      { "name": "Office", "count": 15 },
+      { "name": "Shop", "count": 15 },
+      { "name": "Educate", "count": 15 },
+      { "name": "Academy", "count": 15 },
+      { "name": "Single family home", "count": 15 }
+    ],
+    "recentPosts": [
+      {
+        "title": "Best LearnPress WordPress Theme Collection For 2023",
+        "image": "../src/assets/images/blog/blog-single/Image2.svg",
+        "url": "./blog-single.html"
+      },
+      {
+        "title": "Best LearnPress WordPress Theme Collection For 2023",
+        "image": "../src/assets/images/blog/blog-single/Image3.svg",
+        "url": "./blog-single.html"
+      },
+      {
+        "title": "Best LearnPress WordPress Theme Collection For 2023",
+        "image": "../src/assets/images/blog/blog-single/Image4.svg",
+        "url": "./blog-single.html"
+      }
+    ],
+    "tags": ["Free courses", "Marketing", "Idea", "LMS", "LearnPress", "Instructor"]
+  }
+}
