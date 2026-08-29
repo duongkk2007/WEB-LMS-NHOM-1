@@ -16,40 +16,32 @@
 </head>
 <body>
 
-        <!-- HEADER -->
+    <!-- HEADER -->
     <header class="header">
         <div class="inner-header">
-            <a href="../index.html" class="logo-header">
+            <!-- LOGO -->
+            <a href="/" class="logo-header">
                 <div class="logo-icon-header">
                     <img src="../src/assets/images/banners/Logo.svg" alt="EduPress Logo">
                 </div>
                 <span class="header-title">EduPress</span>
             </a>
 
+            <!-- NAV -->
             <nav class="nav" aria-label="Main navigation">
                 <a href="../index.html" class="home-nav">Home</a>
                 <a href="./course-listing.html" class="course-nav">Courses</a>
                 <a href="./blog-listing.html" class="blog-nav">Blog</a>
-                <div class="nav-item">
-                    <a href="./contact.html" class="page-nav active">Page</a>
-                    <div class="nav-dropdown">
-                        <a href="./contact.html" class="active">Contact</a>
-                        <a href="./auth.html">Auth</a>
-                        <a href="./error.html">Error</a>
-                        <a href="./faq.html">FAQ</a>
-                    </div>
-                </div>
+                <a href="#" class="page-nav active">Page</a>
                 <a href="./auth.html" class="learnpress-nav">LearnPress Add-On</a>
                 <a href="./auth.html" class="theme-nav">Premium Theme</a>
             </nav>
 
+            <!-- RIGHT -->
             <div class="header-right">
                 <a href="./auth.html" class="btn-login">Login / Register</a>
                 <button type="button" class="search-icon-header" aria-label="Search">
-                    <img src="../src/assets/icons/Icon-search-header.svg" alt="Icon-Search">
-                </button>
-                            <button type="button" class="menu-toggle" aria-label="Open menu" aria-expanded="false">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <img src="../src/assets/icons/Icon-search-header.svg" alt="">
                 </button>
             </div>
         </div>
@@ -117,17 +109,14 @@
                 <form class="comment-form" action="#" method="post">
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="contact-name" class="visually-hidden">Name</label>
                             <input type="text" id="contact-name" name="name" placeholder="Name*" required>
                         </div>
                         <div class="form-group">
-                            <label for="contact-email" class="visually-hidden">Email</label>
                             <input type="email" id="contact-email" name="email" placeholder="Email*" required>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label for="contact-message" class="visually-hidden">Comment</label>
                         <textarea id="contact-message" name="comment" rows="6" placeholder="Comment"></textarea>
                     </div>
 
@@ -145,11 +134,11 @@
     </main>
 
     <!-- FOOTER -->
-        <footer class="footer">
+    <footer class="footer">
         <div class="footer-container">
             <!-- Cột 1: About -->
             <div class="footer-about">
-                <a href="../index.html" class="logo-footer">
+                <a href="/" class="logo-footer">
                     <img src="../src/assets/images/banners/Logo.svg" alt="EduPress">
                     EduPress
                 </a>
@@ -163,7 +152,7 @@
                 <h5 class="get-help-title">Get Help</h5>
                 <ul class="footer-list">
                     <li><a href="./contact.html">Contact Us</a></li>
-                    <li><a href="./blog-listing.html">Latest Articles</a></li>
+                    <li><a href="#">Latest Articles</a></li>
                     <li><a href="./faq.html">FAQ</a></li>
                 </ul>
             </div>
@@ -215,7 +204,6 @@
     <!-- JAVASCRIPT  -->
     <script src="../src/js/pages/contact.js"></script>
 
-    <script src="../src/js/components/header.js"></script>
 </body>
 </html>
 

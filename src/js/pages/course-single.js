@@ -2,30 +2,36 @@
 async function loadCourseFromQuery() {
   const params = new URLSearchParams(window.location.search);
   const id = Number(params.get('id'));
-  if (!id) return; // Không có id trên URL -> giữ nguyên nội dung tĩnh mặc định
+  if (!id) return; // no id → keep static default content
 
   try {
     const res = await fetch('../data/courses.json');
-    if (!res.ok) throw new Error('Không thể tải courses.json');
+    if (!res.ok) throw new Error('Cannot load courses.json');
     const data = await res.json();
     const courses = data.courses || data;
     const course = courses.find(c => c.id === id);
     if (!course) return;
 
-    // Title (document + breadcrumb + hero)
+    // Document title
     document.title = `${course.title} | EduPress`;
-    const breadcrumbCurrent = document.querySelector('.breadcrumb .current');
+
+    // Breadcrumb (HTML uses .fading, not .current)
+    const breadcrumbCurrent = document.querySelector('.breadcrumb .fading');
     if (breadcrumbCurrent) breadcrumbCurrent.textContent = course.title;
+
+    // Hero title
     const heroTitle = document.querySelector('.hero-title');
     if (heroTitle) heroTitle.textContent = course.title;
 
-    // Category + author
+    // Category badge
     const badge = document.querySelector('.badge-category');
     if (badge) badge.textContent = course.category;
-    const authorEl = document.querySelector('.hero-author b');
-    if (authorEl) authorEl.textContent = course.author;
 
-    // Stats (duration, students, level, lessons) - giữ nguyên icon quiz tĩnh
+    // Author (HTML uses .author-name, not a <b>)
+    const authorEl = document.querySelector('.hero-author .author-name');
+    if (authorEl) authorEl.textContent = ` ${course.author}`;
+
+    // Stats – keep the 5th item (Quizzes) unchanged
     const statLis = document.querySelectorAll('.hero-stats li');
     const statValues = [
       course.duration,
@@ -41,20 +47,26 @@ async function loadCourseFromQuery() {
       li.append(` ${statValues[i]}`);
     });
 
-    // Ảnh minh họa
-    const heroImg = document.querySelector('.hero-card-illustration img');
+    // Course image (HTML uses .hero-card-image)
+    const heroImg = document.querySelector('.hero-card-image img');
     if (heroImg) {
       heroImg.src = course.image;
       heroImg.alt = course.title;
     }
 
-    // Giá
+    // Price
     const priceOld = document.querySelector('.price-old');
     const priceNew = document.querySelector('.price-new');
-    if (priceOld) priceOld.textContent = `$${Number(course.oldPrice).toFixed(1)}`;
-    if (priceNew) priceNew.textContent = course.isFree ? course.currentPrice : course.currentPrice;
+    if (priceOld) {
+      priceOld.textContent = `$${Number(course.oldPrice).toFixed(1)}`;
+      // hide old price when the course is free
+      priceOld.style.display = course.isFree ? 'none' : '';
+    }
+    if (priceNew) {
+      priceNew.textContent = course.isFree ? 'Free' : course.currentPrice;
+    }
   } catch (err) {
-    console.error('Lỗi khi tải dữ liệu khóa học:', err);
+    console.error('Error loading course data:', err);
   }
 }
 
