@@ -283,3 +283,23 @@ document.addEventListener('DOMContentLoaded', async function () {
         commentForm.addEventListener('submit', handleCommentSubmit);
     }
 });
+
+// ========== Back to Top ==========
+function initBackToTop() {
+  const backToTopBtn = document.querySelector('.back-to-top');
+  if (!backToTopBtn) return;
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 300) {
+      backToTopBtn.classList.add('show');
+    } else {
+      backToTopBtn.classList.remove('show');
+    }
+  });
+}
+
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initBackToTop);
+} else {
+  initBackToTop();
+}
