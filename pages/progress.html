@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Learning Progress - EduPress</title>
+<meta name="description" content="Track your course progress, favorites and learning statistics on EduPress LMS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../src/css/input.css">
+<link rel="stylesheet" href="../src/css/faq.css">
+<link rel="icon" type="image/svg" href="../src/assets/images/banners/Logo.svg">
+<style>
+  .progress-page { max-width: 1100px; margin: 0 auto; padding: 40px 20px 80px; font-family: Exo, sans-serif; }
+  .progress-page h1 { font-size: 32px; margin-bottom: 8px; }
+  .progress-page .sub { color: #666; margin-bottom: 32px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 36px; }
+  .stat-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); }
+  .stat-card .num { font-size: 28px; font-weight: 700; color: #55BE24; }
+  .stat-card .lbl { font-size: 14px; color: #666; margin-top: 4px; }
+  .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 40px; }
+  @media (max-width: 768px) { .charts-row { grid-template-columns: 1fr; } }
+  .chart-card { background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 20px; }
+  .chart-card h2 { font-size: 18px; margin: 0 0 16px; }
+  .section-title { font-size: 22px; margin: 0 0 16px; }
+  .course-progress-list { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+  .cp-item { display: flex; gap: 16px; align-items: center; background: #fff; border: 1px solid #eee; border-radius: 12px; padding: 14px 16px; }
+  .cp-item img { width: 80px; height: 56px; object-fit: cover; border-radius: 8px; }
+  .cp-item .info { flex: 1; min-width: 0; }
+  .cp-item .info a { font-weight: 600; color: #222; text-decoration: none; }
+  .cp-item .info a:hover { color: #55BE24; }
+  .cp-bar-bg { background: #e5e5e5; border-radius: 6px; height: 8px; margin-top: 8px; overflow: hidden; }
+  .cp-bar-fill { height: 100%; background: #55BE24; border-radius: 6px; transition: width 0.4s; }
+  .cp-pct { font-size: 14px; font-weight: 600; color: #55BE24; min-width: 48px; text-align: right; }
+  .fav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  .fav-card { background: #fff; border: 1px solid #eee; border-radius: 12px; overflow: hidden; }
+  .fav-card img { width: 100%; height: 140px; object-fit: cover; }
+  .fav-card .body { padding: 12px 14px; }
+  .fav-card .body a { font-weight: 600; color: #222; text-decoration: none; }
+  .empty { color: #888; padding: 24px; text-align: center; background: #fafafa; border-radius: 12px; }
+  .nav a.progress-nav { color: #55BE24; font-weight: 600; }
+</style>
+</head>
+<body>
+  <header class="header">
+    <div class="inner-header">
+      <a href="../index.html" class="logo-header">
+        <div class="logo-icon-header">
+          <img src="../src/assets/images/banners/Logo.svg" alt="EduPress Logo">
+        </div>
+        <span class="header-title">EduPress</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation" id="mainNav">
+        <a href="../index.html" class="home-nav">Home</a>
+        <a href="./course-listing.html" class="course-nav">Courses</a>
+        <a href="./blog-listing.html" class="blog-nav">Blog</a>
+        <a href="./progress.html" class="progress-nav">My Progress</a>
+        <a href="./contact.html" class="page-nav">Contact</a>
+        <a href="./faq.html">FAQ</a>
+      </nav>
+      <div class="header-right">
+        <a href="./auth.html" class="btn-login">Login / Register</a>
+        <button type="button" class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="content-brb">
+      <a href="../index.html">Homepage</a>
+      <span class="arrow">›</span>
+      <span>My Learning Progress</span>
+    </div>
+  </nav>
+
+  <main class="progress-page">
+    <h1>My Learning Progress</h1>
+    <p class="sub">Track completed lessons, enrolled courses and favorites. Data is saved in your browser (localStorage).</p>
+
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card"><div class="num" id="statEnrolled">0</div><div class="lbl">Enrolled courses</div></div>
+      <div class="stat-card"><div class="num" id="statFav">0</div><div class="lbl">Favorites</div></div>
+      <div class="stat-card"><div class="num" id="statLessons">0</div><div class="lbl">Lessons completed</div></div>
+      <div class="stat-card"><div class="num" id="statAvg">0%</div><div class="lbl">Average progress</div></div>
+    </div>
+
+    <div class="charts-row">
+      <div class="chart-card">
+        <h2>Progress by course</h2>
+        <canvas id="chartProgress" height="220"></canvas>
+      </div>
+      <div class="chart-card">
+        <h2>Lessons completed distribution</h2>
+        <canvas id="chartPie" height="220"></canvas>
+      </div>
+    </div>
+
+    <h2 class="section-title">Courses in progress</h2>
+    <div class="course-progress-list" id="progressList">
+      <div class="empty">No progress yet. Open a course and mark lessons complete.</div>
+    </div>
+
+    <h2 class="section-title">Favorite courses</h2>
+    <div class="fav-grid" id="favGrid">
+      <div class="empty">No favorites yet. Click the heart icon on a course card.</div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="../src/js/utils/storage.js"></script>
+  <script src="../src/js/pages/progress.js"></script>
+</body>
+</html>
